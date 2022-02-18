@@ -41,4 +41,15 @@ export class AppComponent {
   public pisem2(e:any): void {
     this.mnozstvo = e.target.value;
   }
+
+  //ULOHA 1
+  dec: number = 0;
+  public prevod(e:any): void{
+    this.dec = e.target.value;
+  }
+
+  public dec2bin(){
+    return (this.dec >>> 0).toString(2);
+  }
+
 }

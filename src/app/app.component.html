@@ -1,41 +1,17 @@
-
 <div>
-  Develop of {{title}}
+  dec: <input [(ngModel)]="dec"> <br><br>
 
-  <button (click)="pracuj()">Stlac</button>
-  <select (change)="pracuj()">
-    <option>1</option>
-    <option>2</option>
-    <option>2</option>
-  </select>
-
+  bin &nbsp;
+  <input type="checkbox">
+  <input type="checkbox">
+  <input type="checkbox">
+  <input type="checkbox">
+  <input type="checkbox">
+  <input type="checkbox">
+  <input type="checkbox">
+  <input type="checkbox">
   <br>
-
-  <span>Cena za ks <input [(ngModel)]="cenaKs" > </span>
-  <br>
-  <span> Mnozstvo <input [(ngModel)]="mnozstvo" ></span>
-  <br>
-  Spolu: {{cenaKs*mnozstvo}}
+<!--  {{dec}}-->
+<!--  prevod z dec do bin-->
+  {{dec2bin()}}
 </div>
-
-<br>
-<form [formGroup]="form">
-  <div>
-    UMB {{title}}
-
-    <button (click)="pracuj()">Stlac</button>
-    <select (change)="pracuj()">
-      <option>1</option>
-      <option>2</option>
-      <option>2</option>
-    </select>
-
-    <br>
-
-    <span>Cena za ks <input formControlName="cenaKs" > </span>
-    <br>
-    <span> Mnozstvo <input formControlName="mnozstvo" ></span>
-    <br>
-    Spolu: {{form.value.cenaKs*form.value.mnozstvo}}
-  </div>
-</form>
