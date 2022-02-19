@@ -55,8 +55,8 @@ export class AppComponent {
   bin: number = 0;
   checkCheckBoxvalue(event: any){
     if(event.target.checked) {
-      this.bin = event.target.value;
-      this.dec = this.dec + this.bin;
+      this.bin = parseInt(event.target.value);
+      this.dec += this.bin;
       console.log(this.bin);
     }
     console.log(event.target.checked)
