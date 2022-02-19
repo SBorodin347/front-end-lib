@@ -48,17 +48,22 @@ export class AppComponent {
         // console.log(array[i], val);
       }
     }
+
+    //RESET CHECKBOXOV
+    if(this.dec == 0){
+      this.reset();
+      console.log("empty");
+    }
+
   }
 
   @ViewChildren("checkboxes")
   checkboxes!: QueryList<ElementRef>;
 
-  // RESET CHECKBOXOV A DEC
   public reset() {
     this.checkboxes.forEach((element) => {
       element.nativeElement.checked = false;
     });
-    this.dec = 0;
   }
 
 }
