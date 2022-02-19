@@ -1,6 +1,5 @@
 <div>
-  dec: <input (change)="prevod()" [(ngModel)]="dec"> <br><br>
-
+  dec: <input (input)="prevod()" [(ngModel)]="dec"> <br><br>
   bin &nbsp;
   <input type="checkbox" (change)="checkCheckBoxvalue($event)" value="128" id="128" #checkboxes>  <!-- 0 -->
   <input type="checkbox" (change)="checkCheckBoxvalue($event)" value="64" id="64" #checkboxes>
