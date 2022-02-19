@@ -2,16 +2,9 @@
   dec: <input [(ngModel)]="dec"> <br><br>
 
   bin &nbsp;
-  <input type="checkbox">
-  <input type="checkbox">
-  <input type="checkbox">
-  <input type="checkbox">
-  <input type="checkbox">
-  <input type="checkbox">
-  <input type="checkbox">
-  <input type="checkbox">
-  <br>
-<!--  {{dec}}-->
+  <input type="checkbox" (change)="checkCheckBoxvalue($event)" value="1">
+  <input type="checkbox" (change)="checkCheckBoxvalue($event)" value="2">
+  {{dec}}
 <!--  prevod z dec do bin-->
-  {{dec2bin()}}
+<!--  {{dec2bin()}}-->
 </div>

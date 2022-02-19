@@ -52,4 +52,16 @@ export class AppComponent {
     return (this.dec >>> 0).toString(2);
   }
 
+  bin: number = 0;
+  checkCheckBoxvalue(event: any){
+    if(event.target.checked) {
+      this.bin = event.target.value;
+      this.dec = this.dec + this.bin;
+      console.log(this.bin);
+    }
+    console.log(event.target.checked)
+  }
+
+
+
 }
