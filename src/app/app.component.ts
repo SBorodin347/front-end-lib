@@ -1,4 +1,8 @@
-import { Component, QueryList, ViewChildren, ElementRef} from '@angular/core';
+import { Component} from '@angular/core';
+
+enum MENU{
+  USERS,BOOKS,BORROWINGS
+}
 
 @Component({
   selector: 'app-root',
@@ -7,63 +11,21 @@ import { Component, QueryList, ViewChildren, ElementRef} from '@angular/core';
 })
 
 export class AppComponent {
-  title = 'DECIMAL TO BINARY (a naopak)';
-  dec: number = 0;
-  bin: number = 0;
-  id: any;
+  title = 'LIBRARY FORM';
+  menu  = MENU;
+  aktMenu = MENU.USERS;
 
-  // PREVOD DO BIN
-  public dec2bin(){
-    return (this.dec >>> 0).toString(2);
+  public nastavMenu(m: MENU){
+    this.aktMenu = m;
   }
 
-  // ZMENA NA ZAKLADE CHECKBOXOV (BIN >> DEC)
-  public checkCheckBoxvalue(event: any){
-    this.id = event.target.id;
-    if(event.target.checked) {
-      this.bin = parseInt(event.target.value);
-      this.dec += this.bin;
-    }else{
-      this.bin = parseInt(event.target.value);
-      this.dec -= this.bin;
-    }
+  user = {id: 0, name: 'Anna Dobra', contact: 'a.dobra@example.com'}
+  users: any = [];
+
+  public addUser(): void{
+    let u = {id: this.user.id, name: this.user.name, contact: this.user.contact}
+    this.users.push(u);
   }
 
-  // ZMENA NA ZAKLADE INPUTU (DEC >> BIN)
-  public prevod(): void{
-    let array = [];
-    let binary = this.dec2bin();
-    binary = binary.split("").reverse().join(""); // reverse
-    for(let i = binary.length - 1; i >= 0; i--){
-      if(binary[i] == "1"){
-        array.push(Math.pow(2, i));
-      }
-    }
-
-    for(let i = array.length - 1; i >= 0; i--){
-      let element = <HTMLInputElement> document.getElementById(array[i].toString());
-      let val = parseInt(element.value);
-      if(array[i] == val){
-        element.checked = true;
-        // console.log(array[i], val);
-      }
-    }
-
-    //RESET CHECKBOXOV
-    if(this.dec == 0){
-      this.reset();
-      console.log("empty");
-    }
-
-  }
-
-  @ViewChildren("checkboxes")
-  checkboxes!: QueryList<ElementRef>;
-
-  public reset() {
-    this.checkboxes.forEach((element) => {
-      element.nativeElement.checked = false;
-    });
-  }
 
 }

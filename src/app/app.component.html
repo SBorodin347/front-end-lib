@@ -1,8 +1,40 @@
-<button>Customers</button><button>Books</button><button>Borrowings</button>
+<style>
+  table, td, th {
+    border: 1px solid #ddd;
+    text-align: left;
+  }
 
+  table {
+    border-collapse: collapse;
+    width: 50%;
+  }
+
+  th, td {
+    padding: 10px;
+  }
+</style>
+
+<button (click)="nastavMenu(menu.USERS)">Customers</button><button (click)="nastavMenu(menu.BOOKS)">Books</button><button>Borrowings</button>
+<br><br>
 <!--CUSTOMERS FORM-->
-<div>
-
+<div *ngIf="aktMenu == menu.USERS">
+  id: <input type="text" [(ngModel)]="user.id"><br><br>
+  name: <input type="text" [(ngModel)]="user.name"><br><br>
+  contact: <input type="text" [(ngModel)]="user.contact"><br>
+  <button (click)="addUser()">Pridaj</button><br>
+  Zoznam: <br>
+  <table >
+    <tr>
+      <th>ID</th>
+      <th>NAME</th>
+      <th>CONTACT</th>
+    </tr>
+    <tr *ngFor="let u of users">
+      <td>{{u.id}}</td>
+      <td>{{u.name}}</td>
+      <td>{{u.contact}}</td>
+    </tr>
+  </table>
 </div>
 
 
