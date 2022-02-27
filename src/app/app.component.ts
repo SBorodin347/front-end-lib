@@ -35,5 +35,4 @@ export class AppComponent {
     this.books.push(b);
   }
 
-
 }
