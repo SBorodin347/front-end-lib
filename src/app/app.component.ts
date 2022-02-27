@@ -35,4 +35,12 @@ export class AppComponent {
     this.books.push(b);
   }
 
+  borrowing = {id: 0, book: 'The Hobbit', user: "Anna Dobra"}
+  borrowings: any = [];
+
+  public addBorrowing(): void{
+    let borrow = {id: this.borrowing.id, book: this.borrowing.book, user: this.borrowing.user}
+    this.borrowings.push(borrow);
+  }
+
 }
