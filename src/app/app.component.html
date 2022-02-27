@@ -14,7 +14,7 @@
   }
 </style>
 
-<button (click)="nastavMenu(menu.USERS)">Customers</button><button (click)="nastavMenu(menu.BOOKS)">Books</button><button>Borrowings</button>
+<button (click)="nastavMenu(menu.USERS)">Customers</button><button (click)="nastavMenu(menu.BOOKS)">Books</button><button (click)="nastavMenu(menu.BORROWINGS)">Borrowings</button>
 <br><br>
 <!--CUSTOMERS FORM-->
 <div *ngIf="aktMenu == menu.USERS">
@@ -36,7 +36,6 @@
     </tr>
   </table>
 </div>
-<br><br>
 <!--BOOKS FORM-->
 <div *ngIf="aktMenu == menu.BOOKS">
   id: <input type="text" [(ngModel)]="book.id"><br><br>
@@ -61,4 +60,23 @@
     </tr>
   </table>
 </div>
-
+<!--BORROWINGS FORM-->
+<div *ngIf="aktMenu == menu.BORROWINGS">
+  id: <input type="text" [(ngModel)]="borrowing.id"><br><br>
+  book: <input type="text" [(ngModel)]="borrowing.book"><br><br>
+  user: <input type="text" [(ngModel)]="borrowing.user"><br><br>
+  <button (click)="addBorrowing()">Pridaj pozicku</button><br>
+  Zoznam: <br>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>BOOK</th>
+      <th>USER</th>
+    </tr>
+    <tr *ngFor="let borrow of borrowings">
+      <td>{{borrow.id}}</td>
+      <td>{{borrow.book}}</td>
+      <td>{{borrow.user}}</td>
+    </tr>
+  </table>
+</div>
