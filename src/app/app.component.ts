@@ -27,5 +27,12 @@ export class AppComponent {
     this.users.push(u);
   }
 
+  book = {id: 0, name: 'The Hobbit', author: "J.R.R Tolkien", avial: 5}
+  books: any = [];
+
+  public addBook(): void{
+    let b = {id: this.book.id, name: this.book.name, author: this.book.author, avialable: this.book.avial}
+    this.books.push(b);
+  }
 
 }

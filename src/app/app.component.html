@@ -36,5 +36,29 @@
     </tr>
   </table>
 </div>
+<br><br>
+<!--BOOKS FORM-->
+<div *ngIf="aktMenu == menu.BOOKS">
+  id: <input type="text" [(ngModel)]="book.id"><br><br>
+  name: <input type="text" [(ngModel)]="book.name"><br><br>
+  author: <input type="text" [(ngModel)]="book.author"><br><br>
+  avialalbe: <input type="text" [(ngModel)]="book.avial"><br>
+  <button (click)="addBook()">Pridaj</button><br>
+  Zoznam: <br>
+  <table >
+    <tr>
+      <th>ID</th>
+      <th>NAME</th>
+      <th>AUTHOR</th>
+      <th>AVIALALBE</th>
+    </tr>
+    <tr *ngFor="let b of books">
+      <td>{{b.id}}</td>
+      <td>{{b.name}}</td>
+      <td>{{b.author}}</td>
+      <td>{{b.avialable}}</td>
 
+    </tr>
+  </table>
+</div>
 
