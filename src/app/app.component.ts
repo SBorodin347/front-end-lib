@@ -1,4 +1,5 @@
-import { Component} from '@angular/core';
+import { Component } from '@angular/core';
+import {Router} from "@angular/router";
 
 enum MENU{
   USERS,BOOKS,BORROWINGS
@@ -13,7 +14,26 @@ enum MENU{
 export class AppComponent {
   title = 'LIBRARY FORM';
   menu  = MENU;
-  aktMenu = MENU.USERS;
+  aktMenu = MENU.BOOKS;
+
+  constructor(private router: Router) {
+  }
+
+  otvorMenu(m: MENU) {
+    // preroutuj do komponenty podla menu
+    if (m == MENU.USERS){
+      this.router.navigate(['/users']);
+    }
+
+    if (m == MENU.BOOKS) {
+      this.router.navigate(['/books']);
+    }
+
+    if (m == MENU.BORROWINGS) {
+      this.router.navigate(['/borrowings']);
+    }
+
+  }
 
   public nastavMenu(m: MENU){
     this.aktMenu = m;
@@ -27,13 +47,6 @@ export class AppComponent {
     this.users.push(u);
   }
 
-  book = {id: 0, name: 'The Hobbit', author: "J.R.R Tolkien", avial: 5}
-  books: any = [];
-
-  public addBook(): void{
-    let b = {id: this.book.id, name: this.book.name, author: this.book.author, avialable: this.book.avial}
-    this.books.push(b);
-  }
 
   borrowing = {id: 0, book: 'The Hobbit', user: "Anna Dobra"}
   borrowings: any = [];

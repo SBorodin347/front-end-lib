@@ -14,8 +14,15 @@
   }
 </style>
 
-<button (click)="nastavMenu(menu.USERS)">Customers</button><button (click)="nastavMenu(menu.BOOKS)">Books</button><button (click)="nastavMenu(menu.BORROWINGS)">Borrowings</button>
-<br><br>
+{{title}}
+
+<button (click)="otvorMenu(menu.USERS)">osoby</button>
+<button (click)="otvorMenu(menu.BOOKS)">knihy</button>
+<button (click)="otvorMenu(menu.BORROWINGS)">vypozicky</button>
+<br>
+<br>
+<router-outlet></router-outlet>
+
 <!--CUSTOMERS FORM-->
 <div *ngIf="aktMenu == menu.USERS">
   id: <input type="text" [(ngModel)]="user.id"><br><br>
@@ -36,30 +43,7 @@
     </tr>
   </table>
 </div>
-<!--BOOKS FORM-->
-<div *ngIf="aktMenu == menu.BOOKS">
-  id: <input type="text" [(ngModel)]="book.id"><br><br>
-  name: <input type="text" [(ngModel)]="book.name"><br><br>
-  author: <input type="text" [(ngModel)]="book.author"><br><br>
-  avialalbe: <input type="text" [(ngModel)]="book.avial"><br>
-  <button (click)="addBook()">Pridaj</button><br>
-  Zoznam: <br>
-  <table >
-    <tr>
-      <th>ID</th>
-      <th>NAME</th>
-      <th>AUTHOR</th>
-      <th>AVIALALBE</th>
-    </tr>
-    <tr *ngFor="let b of books">
-      <td>{{b.id}}</td>
-      <td>{{b.name}}</td>
-      <td>{{b.author}}</td>
-      <td>{{b.avialable}}</td>
 
-    </tr>
-  </table>
-</div>
 <!--BORROWINGS FORM-->
 <div *ngIf="aktMenu == menu.BORROWINGS">
   id: <input type="text" [(ngModel)]="borrowing.id"><br><br>
