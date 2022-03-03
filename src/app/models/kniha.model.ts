@@ -1,11 +1,15 @@
 export class Book {
 
-  meno: string;
-  priezvisko: string;
+  id: number;
+  name: string;
+  author: string;
+  avialable: number;
 
-  constructor(book: Book) {
-    this.meno = book.meno;
-    this.priezvisko = book.priezvisko;
+
+  constructor(id: number, name: string, author: string, avialable: number) {
+    this.id = id;
+    this.name = name;
+    this.author = author;
+    this.avialable = avialable;
   }
-
 }

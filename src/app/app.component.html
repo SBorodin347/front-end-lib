@@ -15,7 +15,6 @@
 </style>
 
 {{title}}
-
 <button (click)="otvorMenu(menu.USERS)">osoby</button>
 <button (click)="otvorMenu(menu.BOOKS)">knihy</button>
 <button (click)="otvorMenu(menu.BORROWINGS)">vypozicky</button>
@@ -23,7 +22,7 @@
 <br>
 <router-outlet></router-outlet>
 
-<!--CUSTOMERS FORM-->
+<!--CUSTOMERS FORM
 <div *ngIf="aktMenu == menu.USERS">
   id: <input type="text" [(ngModel)]="user.id"><br><br>
   name: <input type="text" [(ngModel)]="user.name"><br><br>
@@ -43,8 +42,9 @@
     </tr>
   </table>
 </div>
+-->
 
-<!--BORROWINGS FORM-->
+<!--BORROWINGS FORM
 <div *ngIf="aktMenu == menu.BORROWINGS">
   id: <input type="text" [(ngModel)]="borrowing.id"><br><br>
   book: <input type="text" [(ngModel)]="borrowing.book"><br><br>
@@ -64,3 +64,4 @@
     </tr>
   </table>
 </div>
+-->
