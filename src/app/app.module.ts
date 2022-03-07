@@ -11,6 +11,9 @@ import {CustomerZoznamComponent} from "./customer-zoznam/customer-zoznam.compone
 import { KnihaFormularComponent } from './kniha-formular/kniha-formular.component';
 import { KnihyZoznamComponent } from './knihy-zoznam/knihy-zoznam.component';
 import { KnihaStrankaComponent } from './kniha-stranka/kniha-stranka.component';
+import { BorrowingFormularComponent } from './borrowing-formular/borrowing-formular.component';
+import { BorrowingStrankaComponent } from './borrowing-stranka/borrowing-stranka.component';
+import { BorrowingZoznamComponent } from './borrowing-zoznam/borrowing-zoznam.component';
 
 
 @NgModule({
@@ -21,7 +24,10 @@ import { KnihaStrankaComponent } from './kniha-stranka/kniha-stranka.component';
     KnihaStrankaComponent,
     CustomerFormularComponent,
     CustomerStrankaComponent,
-    CustomerZoznamComponent
+    CustomerZoznamComponent,
+    BorrowingFormularComponent,
+    BorrowingStrankaComponent,
+    BorrowingZoznamComponent
   ],
   imports: [
     BrowserModule,
