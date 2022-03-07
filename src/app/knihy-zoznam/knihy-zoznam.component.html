@@ -1,0 +1,20 @@
+<div>
+  Zoznam: <br>
+  <table >
+    <tr>
+      <th>ID</th>
+      <th>NAME</th>
+      <th>AUTHOR</th>
+      <th>AVIALALBE</th>
+    </tr>
+    <tr *ngFor="let b of books">
+      <td>{{b.id}}</td>
+      <td>{{b.name}}</td>
+      <td>{{b.author}}</td>
+      <td>{{b.avialable}}</td>
+
+    </tr>
+  </table>
+</div>
+
+
