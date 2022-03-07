@@ -1,67 +1,7 @@
 
-<button (click)="nastavMenu(menu.USERS)">Customers</button><button (click)="nastavMenu(menu.BOOKS)">Books</button><button (click)="nastavMenu(menu.BORROWINGS)">Borrowings</button>
+<button (click)="otvorMenu(menu.USERS)">Customers</button>
+<button (click)="otvorMenu(menu.BOOKS)">Books</button>
+<button (click)="otvorMenu(menu.BORROWINGS)">Borrowings</button>
 <br><br>
 <!--CUSTOMERS FORM-->
-<div *ngIf="aktMenu == menu.USERS">
-  id: <input type="text" [(ngModel)]="user.id"><br><br>
-  name: <input type="text" [(ngModel)]="user.name"><br><br>
-  contact: <input type="text" [(ngModel)]="user.contact"><br>
-  <button (click)="addUser()">Pridaj</button><br>
-  Zoznam: <br>
-  <table >
-    <tr>
-      <th>ID</th>
-      <th>NAME</th>
-      <th>CONTACT</th>
-    </tr>
-    <tr *ngFor="let u of users">
-      <td>{{u.id}}</td>
-      <td>{{u.name}}</td>
-      <td>{{u.contact}}</td>
-    </tr>
-  </table>
-</div>
-<!--BOOKS FORM-->
-<div *ngIf="aktMenu == menu.BOOKS">
-  id: <input type="text" [(ngModel)]="book.id"><br><br>
-  name: <input type="text" [(ngModel)]="book.name"><br><br>
-  author: <input type="text" [(ngModel)]="book.author"><br><br>
-  avialalbe: <input type="text" [(ngModel)]="book.avial"><br>
-  <button (click)="addBook()">Pridaj</button><br>
-  Zoznam: <br>
-  <table >
-    <tr>
-      <th>ID</th>
-      <th>NAME</th>
-      <th>AUTHOR</th>
-      <th>AVIALALBE</th>
-    </tr>
-    <tr *ngFor="let b of books">
-      <td>{{b.id}}</td>
-      <td>{{b.name}}</td>
-      <td>{{b.author}}</td>
-      <td>{{b.avialable}}</td>
-
-    </tr>
-  </table>
-</div>
-<!--BORROWINGS FORM-->
-<div *ngIf="aktMenu == menu.BORROWINGS">
-  id: <input type="text" [(ngModel)]="borrowing.id"><br><br>
-  book: <input type="text" [(ngModel)]="borrowing.book"><br><br>
-  user: <input type="text" [(ngModel)]="borrowing.user"><br><br>
-  <button (click)="addBorrowing()">Pridaj pozicku</button><br>
-  Zoznam: <br>
-  <table>
-    <tr>
-      <th>ID</th>
-      <th>BOOK</th>
-      <th>USER</th>
-    </tr>
-    <tr *ngFor="let borrow of borrowings">
-      <td>{{borrow.id}}</td>
-      <td>{{borrow.book}}</td>
-      <td>{{borrow.user}}</td>
-    </tr>
-  </table>
-</div>
+<router-outlet></router-outlet>
