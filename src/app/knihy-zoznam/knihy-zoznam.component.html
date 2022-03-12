@@ -5,16 +5,16 @@
       <th>ID</th>
       <th>NAME</th>
       <th>AUTHOR</th>
-      <th>AVIALALBE</th>
+      <th>AVIALABLE</th>
     </tr>
     <tr *ngFor="let b of books">
       <td>{{b.id}}</td>
       <td>{{b.name}}</td>
       <td>{{b.author}}</td>
       <td>{{b.avialable}}</td>
-
+      <button (click)="edit(b)">Edit</button>
+      <button (click)="remove(b)">Vymaž</button>
     </tr>
   </table>
 </div>
-
 
