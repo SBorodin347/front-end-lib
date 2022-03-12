@@ -12,4 +12,5 @@ export class Book {
     this.author = author;
     this.avialable = avialable;
   }
+
 }
