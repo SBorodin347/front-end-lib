@@ -3,13 +3,13 @@ export class Book {
   id?: string;
   name: string;
   author: string;
-  avialable: number;
+  available: number;
 
 
-  constructor(id: string, name: string, author: string, avialable: number) {
-    this.id = id;
-    this.name = name;
-    this.author = author;
-    this.avialable = avialable;
+  constructor(book: Book) {
+    this.id = book.id;
+    this.name = book.name;
+    this.author = book.author;
+    this.available = book.available;
   }
 }

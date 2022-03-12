@@ -1,7 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
 import {Router} from "@angular/router";
-import {KnihaFormularComponent} from "../kniha-formular/kniha-formular.component";
-import  {KnihyZoznamComponent} from "../knihy-zoznam/knihy-zoznam.component";
 import {Book} from "../models/kniha.model";
 
 
@@ -18,7 +16,11 @@ export class KnihaStrankaComponent {
   }
 
   books: Book[] = [];
-  aktBook: Book = { id: "0", name: "The Hobbit", author: "J.R.R Tolkien", avialable: 10};
+  aktBook: Book = {name: 'The Hobbit', author: 'J.R.R Tolkien', available: 0};
+
+  chodSpat(): void{
+    this.router.navigate(['']);
+  }
 
   add(book: Book): void{
     this.books.push(book);
@@ -26,7 +28,6 @@ export class KnihaStrankaComponent {
 
   edit(book: Book): void{
     const index = this.books.findIndex(bookFromList => bookFromList.id === book.id);
-    // v () je funkcia co vracia hodnotu - bookFromList je vstupný argument -> zjednodusena forma zapisu funkcie
     if(index !== -1){
       this.books[index] = book;
     }
@@ -37,7 +38,11 @@ export class KnihaStrankaComponent {
   }
 
 
-  removeBookFromList(book: Book) {
-    this.aktBook = book;
+  removeBookFromList(book: Book): void {
+    const index = this.books.findIndex(bookArray => bookArray.id === book.id);
+    if (index !== -1){
+      this.books.splice(index, 1);
+    }
   }
+
 }

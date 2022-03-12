@@ -1,20 +1,22 @@
-<div>
-  Zoznam: <br>
-  <table >
-    <tr>
+  <table>
+    <thead>
       <th>ID</th>
       <th>NAME</th>
       <th>AUTHOR</th>
-      <th>AVIALABLE</th>
-    </tr>
-    <tr *ngFor="let b of books">
-      <td>{{b.id}}</td>
-      <td>{{b.name}}</td>
-      <td>{{b.author}}</td>
-      <td>{{b.avialable}}</td>
-      <button (click)="edit(b)">Edit</button>
-      <button (click)="remove(b)">Vymaž</button>
-    </tr>
+      <th>AVAILABILITY</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let b of books">
+        <td>{{b.id}}</td>
+        <td>{{b.name}}</td>
+        <td>{{b.author}}</td>
+        <td>{{b.available}}</td>
+        <td>
+          <button (click)="edit(b)">Edit</button>
+          <button (click)="remove(b)">Vymaž</button>
+        </td>
+      </tr>
+    </tbody>
   </table>
-</div>
+
 

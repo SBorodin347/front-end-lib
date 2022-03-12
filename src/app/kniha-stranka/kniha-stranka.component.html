@@ -1,8 +1,17 @@
 <app-kniha-formular [book]="aktBook"
                     (addBook)="add($event)"
                     (editBook)="edit($event)">
-</app-kniha-formular> <!-- $event je hodnota z emitu -->
+</app-kniha-formular>
 <br>
 <br>
-<app-knihy-zoznam [books]="books" (editBook)="editBookFromList($event)" (removeBook)="removeBookFromList($event)"></app-knihy-zoznam>
+<app-knihy-zoznam [books]="books"
+                  (editBook)="editBookFromList($event)"
+                  (removeBook)="removeBookFromList($event)">
+</app-knihy-zoznam>
+
+<br>
+
+<div>
+  <button (click)="chodSpat()">SPÄŤ</button>
+</div>
 

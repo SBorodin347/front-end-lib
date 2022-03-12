@@ -1,13 +1,15 @@
+<h1>Knihy - formular</h1>
 <form [formGroup]="formular">
-  meno:
-  <input formControlName="name"><br>
-  priezvisko:
-  <input formControlName="author"><br>
-  id:
-  <input formControlName="id"><br>
-  dostupné kusy:
-  <input formControlName="avialable"><br>
-  <button (click)="add()">Pridaj</button><br>
-  <button (click)="edit()">Edit</button>
+  <label>Názov:
+    <input formControlName="name">
+  </label><br>
+  <label>Autor:
+    <input formControlName="author">
+  </label><br>
+  <label>Dostupné kusy:
+    <input formControlName="available">
+  </label><br><br>
+  <button (click)="add()">Pridaj</button>&nbsp;
+  <button (click)="edit()" *ngIf="formular.value.id !== null">Edit</button>&nbsp;
   <button (click)="remove()">Vymaž</button>
 </form>

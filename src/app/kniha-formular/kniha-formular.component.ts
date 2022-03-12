@@ -1,6 +1,5 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Book} from "../models/kniha.model";
-import {Router} from "@angular/router";
 import {FormControl, FormGroup} from "@angular/forms";
 
 @Component({
@@ -19,18 +18,13 @@ export class KnihaFormularComponent {
   @Output()
   removeBook = new EventEmitter<Book>();
 
-  @Input()  //aby sme mohli z vonku nastavovat
-  set book(b: Book){
-    if(b) {
-      this.formular.setValue({
-        id: b.id,
-        name: b.name,
-        author: b.author,
-        avialable: b.avialable
-      });
+  @Input()
+  set book(data: Book){
+    if(data) {
+      this.fillForm(data);
     }
   }
-  // book: Book = {id: 0, name: 'The Hobbit', author: "J.R.R Tolkien", avialable: 5}
+  // book: Book = {id: 0, name: 'The Hobbit', author: "J.R.R Tolkien", available: 5}
 
 
   formular: FormGroup;
@@ -40,8 +34,17 @@ export class KnihaFormularComponent {
       id: new FormControl(null),
       name: new FormControl(null),
       author: new FormControl(null),
-      avialable: new FormControl(null)
+      available: new FormControl(null)
     });
+  }
+
+  private fillForm(book: Book): void{
+    this.formular.setValue({
+      id: book.id,
+      name: book.name,
+      author: book.author,
+      available: book.available
+    })
   }
 
 
@@ -51,23 +54,19 @@ export class KnihaFormularComponent {
       id: Math.random().toString(), //generovanie náhodného ID
       name: this.formular.value.name,
       author: this.formular.value.author,
-      avialable: this.formular.value.avialable
+      available: this.formular.value.available
     });
     this.formular.reset();
   }
 
   public edit(): void{
     this.editBook.emit(this.formular.value);
-    // this.editBook.emit({
-    //   id: this.formular.value.id,
-    //   name: this.formular.value.name,
-    //   author: this.formular.value.author,
-    //   avialable: this.formular.value.avialable
-    // });
     this.formular.reset();
   }
 
   public remove(): void{
+
+    this.formular.reset();
 
   }
 }
