@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppComponent } from './app.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {RouterModule} from "@angular/router";
@@ -11,9 +10,8 @@ import {CustomerZoznamComponent} from "./customer-zoznam/customer-zoznam.compone
 import { KnihaFormularComponent } from './kniha-formular/kniha-formular.component';
 import { KnihyZoznamComponent } from './knihy-zoznam/knihy-zoznam.component';
 import { KnihaStrankaComponent } from './kniha-stranka/kniha-stranka.component';
-import { BorrowingFormularComponent } from './borrowing-formular/borrowing-formular.component';
-import { BorrowingStrankaComponent } from './borrowing-stranka/borrowing-stranka.component';
-import { BorrowingZoznamComponent } from './borrowing-zoznam/borrowing-zoznam.component';
+import {MenuComponent} from "./menu/menu.component";
+import {HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
@@ -25,16 +23,15 @@ import { BorrowingZoznamComponent } from './borrowing-zoznam/borrowing-zoznam.co
     CustomerFormularComponent,
     CustomerStrankaComponent,
     CustomerZoznamComponent,
-    BorrowingFormularComponent,
-    BorrowingStrankaComponent,
-    BorrowingZoznamComponent
+    MenuComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

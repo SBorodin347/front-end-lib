@@ -1,8 +1,17 @@
-<app-kniha-formular></app-kniha-formular>
+<app-kniha-formular [book]="aktBook"
+                    (addBook)="add($event)"
+                    (editBook)="edit($event)">
+</app-kniha-formular>
 <br>
 <br>
-<app-knihy-zoznam></app-knihy-zoznam>
+<app-knihy-zoznam [books]="books"
+                  (editBook)="editBookFromList($event)"
+                  (removeBook)="removeBookFromList($event)">
+</app-knihy-zoznam>
+
 <br>
-<br>
-<button routerLink="/books/formular" routerLinkActive="active">Formular</button>
-<button routerLink="/books/list" routerLinkActive="active">Zoznam</button>
+
+<div>
+  <button (click)="chodSpat()">SPÄŤ</button>
+</div>
+

@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Book} from "../models/kniha.model";
-import {Router} from "@angular/router";
+import {FormControl, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-kniha-formular',
@@ -8,16 +8,59 @@ import {Router} from "@angular/router";
   styleUrls: ['./kniha-formular.component.css']
 })
 export class KnihaFormularComponent {
+  @Output()
+  addBook = new EventEmitter<Book>();
 
-  book = {id: 0, name: 'The Hobbit', author: "J.R.R Tolkien", avial: 5}
-  books: any = [];
+  @Output()
+  editBook = new EventEmitter<Book>();
 
+  @Output()
+  removeBook = new EventEmitter<Book>();
 
-  public addBook(): void{
-    let b = {id: this.book.id, name: this.book.name, author: this.book.author, avialable: this.book.avial}
-    this.books.push(b);
+  @Input()
+  set book(data: Book | undefined){
+    if(data) {
+      this.fillForm(data);
+    }
+  }
+  formular: FormGroup;
+
+  constructor() {
+    this.formular = new FormGroup({
+      id: new FormControl(null),
+      name: new FormControl(null),
+      author: new FormControl(null),
+      available: new FormControl(null)
+    });
   }
 
-  constructor() { }
+  private fillForm(book: Book): void{
+    this.formular.setValue({
+      id: book.id,
+      name: book.name,
+      author: book.author,
+      available: book.available
+    })
+  }
 
+
+  public add(): void{
+    this.addBook.emit({
+      id: Math.random().toString(),
+      name: this.formular.value.name,
+      author: this.formular.value.author,
+      available: this.formular.value.available
+    });
+    this.formular.reset();
+  }
+
+  public edit(): void{
+    this.editBook.emit(this.formular.value);
+    this.formular.reset();
+  }
+
+  public remove(): void{
+    this.book = undefined;
+    this.formular.reset();
+  }
 }
