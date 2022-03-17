@@ -1,5 +1,4 @@
 export class Book {
-  // ? = nepovinné
   id?: string;
   name: string;
   author: string;

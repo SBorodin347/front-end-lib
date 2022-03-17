@@ -8,7 +8,6 @@ import {FormControl, FormGroup} from "@angular/forms";
   styleUrls: ['./kniha-formular.component.css']
 })
 export class KnihaFormularComponent {
-
   @Output()
   addBook = new EventEmitter<Book>();
 
@@ -19,14 +18,11 @@ export class KnihaFormularComponent {
   removeBook = new EventEmitter<Book>();
 
   @Input()
-  set book(data: Book){
+  set book(data: Book | undefined){
     if(data) {
       this.fillForm(data);
     }
   }
-  // book: Book = {id: 0, name: 'The Hobbit', author: "J.R.R Tolkien", available: 5}
-
-
   formular: FormGroup;
 
   constructor() {
@@ -49,9 +45,8 @@ export class KnihaFormularComponent {
 
 
   public add(): void{
-    //this.addBook.emit(this.formular.value);
     this.addBook.emit({
-      id: Math.random().toString(), //generovanie náhodného ID
+      id: Math.random().toString(),
       name: this.formular.value.name,
       author: this.formular.value.author,
       available: this.formular.value.available
@@ -65,8 +60,7 @@ export class KnihaFormularComponent {
   }
 
   public remove(): void{
-
+    this.book = undefined;
     this.formular.reset();
-
   }
 }
