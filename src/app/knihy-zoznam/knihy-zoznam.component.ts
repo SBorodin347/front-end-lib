@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Book} from "../models/kniha.model";
 
 @Component({
@@ -8,9 +8,25 @@ import {Book} from "../models/kniha.model";
 })
 export class KnihyZoznamComponent {
 
-
+  @Input()
   books: Book[] = []
 
+  @Output()
+  editBook: EventEmitter<Book> = new EventEmitter<Book>();
+
+  @Output()
+  removeBook: EventEmitter<Book> = new EventEmitter<Book>();
+
+
   constructor() { }
+
+
+  edit(book: Book): void{
+    this.editBook.emit(book);
+  }
+
+  remove(book: Book): void{
+    this.removeBook.emit(book);
+  }
 
 }
