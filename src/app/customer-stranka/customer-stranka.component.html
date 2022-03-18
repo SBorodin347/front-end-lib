@@ -1,4 +1,17 @@
+<app-customer-formular [customer]="actCustomer"
+                    (addCustomer)="add($event)"
+                    (editCustomer)="edit($event)">
+</app-customer-formular>
+<br>
+<br>
+<app-customer-zoznam [customers]="customers"
+                  (editCustomer)="editCustomerFromList($event)"
+                  (removeCustomer)="removeCustomerFromList($event)">
+</app-customer-zoznam>
 
-<app-customer-formular></app-customer-formular>
+<br>
 
-<app-customer-zoznam></app-customer-zoznam>
+<div>
+  <button (click)="chodSpat()">SPÄŤ</button>
+</div>
+

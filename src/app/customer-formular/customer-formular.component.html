@@ -1,2 +1,16 @@
-name: <input type="text" [(ngModel)]="customer.name"><br>
-contact: <input type="text" [(ngModel)]="customer.contact"><br>
+<h1>Zakaznici - formular</h1>
+<form [formGroup]="form">
+  <label>Meno:
+    <input formControlName="firstName">
+  </label><br>
+  <label>Priezvisko:
+    <input formControlName="lastName">
+  </label><br>
+  <label>Kontakt:
+    <input formControlName="contact">
+  </label><br>
+  <button (click)="add()" *ngIf="form.value.id === null">Pridaj</button>&nbsp;
+  <button (click)="edit()" *ngIf="form.value.id !== null">Edit</button>&nbsp;
+  <button (click)="remove()">Vymaž</button>
+</form>
+

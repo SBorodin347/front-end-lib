@@ -7,7 +7,7 @@ import {MenuComponent} from './menu/menu.component';
 
 const routes: Routes = [
   {
-    path: 'users',
+    path: 'customers',
     component: CustomerStrankaComponent
   },
   {
