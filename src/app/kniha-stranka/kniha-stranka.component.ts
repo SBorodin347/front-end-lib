@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
-import {KnihaFormularComponent} from "../kniha-formular/kniha-formular.component";
-import  {KnihyZoznamComponent} from "../knihy-zoznam/knihy-zoznam.component";
 import {Book} from "../models/kniha.model";
+import {BookServiceService} from "../../book-service.service";
 
 
 @Component({
@@ -10,22 +9,42 @@ import {Book} from "../models/kniha.model";
   templateUrl: './kniha-stranka.component.html',
   styleUrls: ['./kniha-stranka.component.css']
 })
-export class KnihaStrankaComponent {
-
-  title = 'BOOK';
-
-  constructor(private router: Router) {
-  }
+export class KnihaStrankaComponent implements OnInit{
 
   books: Book[] = [];
-  aktBook: Book = { id: "0", name: "The Hobbit", author: "J.R.R Tolkien", avialable: 10};
+  aktBook?: Book;
+
+  constructor(private router: Router, private bookService: BookServiceService) {
+
+  }
+
+  ngOnInit(): void {
+    this.refreshBooks();
+  }
+
+  refreshBooks(): void {
+    this.bookService.getBooks().subscribe(data => {
+      console.log('prislo:', data);
+      this.books = [];
+      for (const d of data) {
+        this.books.push({firstName: d.firstName, lastName: d.lastName, title: d.title, isbn: d.isbn, id: d.id, avialable: d.avialable});
+      }
+    });
+  }
+
+  goBack(): void{
+    this.router.navigate(['']);
+  }
 
   add(book: Book): void{
-    this.books.push(book);
+    this.bookService.createBook(book).subscribe( data => {
+      console.log('Prislo: ', data);
+      this.refreshBooks()
+    });
   }
 
   edit(book: Book): void{
-    const index = this.books.findIndex(bookFromList => bookFromList.id === book.id);
+    const index = this.books.findIndex(bookArray => bookArray.id === book.id);
     // v () je funkcia co vracia hodnotu - bookFromList je vstupný argument -> zjednodusena forma zapisu funkcie
     if(index !== -1){
       this.books[index] = book;
@@ -38,6 +57,11 @@ export class KnihaStrankaComponent {
 
 
   removeBookFromList(book: Book) {
-    this.aktBook = book;
+    const index = this.books.findIndex(bookArray => bookArray.id === book.id);
+    if (index !== -1) {
+      this.books.splice(index, 1);
+    }
   }
+
+
 }

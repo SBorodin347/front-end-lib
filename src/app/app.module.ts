@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppComponent } from './app.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {RouterModule} from "@angular/router";
@@ -11,6 +10,8 @@ import {CustomerZoznamComponent} from "./customer-zoznam/customer-zoznam.compone
 import { KnihaFormularComponent } from './kniha-formular/kniha-formular.component';
 import { KnihyZoznamComponent } from './knihy-zoznam/knihy-zoznam.component';
 import { KnihaStrankaComponent } from './kniha-stranka/kniha-stranka.component';
+import {MenuComponent} from "./menu/menu.component";
+import {HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
@@ -22,13 +23,15 @@ import { KnihaStrankaComponent } from './kniha-stranka/kniha-stranka.component';
     CustomerFormularComponent,
     CustomerStrankaComponent,
     CustomerZoznamComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

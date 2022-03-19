@@ -1,7 +1,7 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Book} from "../models/kniha.model";
-import {Router} from "@angular/router";
 import {FormControl, FormGroup} from "@angular/forms";
+
 
 @Component({
   selector: 'app-kniha-formular',
@@ -9,6 +9,13 @@ import {FormControl, FormGroup} from "@angular/forms";
   styleUrls: ['./kniha-formular.component.css']
 })
 export class KnihaFormularComponent {
+
+  @Input()
+  set book(data: Book | undefined) {
+    if (data) {
+      this.fillForm(data);
+    }
+  }
 
   @Output()
   addBook = new EventEmitter<Book>();
@@ -19,55 +26,52 @@ export class KnihaFormularComponent {
   @Output()
   removeBook = new EventEmitter<Book>();
 
-  @Input()  //aby sme mohli z vonku nastavovat
-  set book(b: Book){
-    if(b) {
-      this.formular.setValue({
-        id: b.id,
-        name: b.name,
-        author: b.author,
-        avialable: b.avialable
-      });
-    }
-  }
-  // book: Book = {id: 0, name: 'The Hobbit', author: "J.R.R Tolkien", avialable: 5}
-
-
-  formular: FormGroup;
+  form!: FormGroup;
 
   constructor() {
-    this.formular = new FormGroup({
+    this.createForm();
+  }
+
+  private createForm(): void {
+    this.form = new FormGroup({
       id: new FormControl(null),
-      name: new FormControl(null),
-      author: new FormControl(null),
+      firstName: new FormControl(null),
+      lastName: new FormControl(null),
+      title: new FormControl(null),
+      isbn: new FormControl(null),
       avialable: new FormControl(null)
     });
   }
 
+  private fillForm(book: Book): void {
+    this.form.controls["id"].setValue(book.id);
+    this.form.controls["firstName"].setValue(book.firstName);
+    this.form.controls["lastName"].setValue(book.lastName);
+    this.form.controls["title"].setValue(book.title);
+    this.form.controls["isbn"].setValue(book.isbn);
+    this.form.controls["avialable"].setValue(book.avialable);
+  }
+
 
   public add(): void{
-    //this.addBook.emit(this.formular.value);
     this.addBook.emit({
       id: Math.random().toString(), //generovanie náhodného ID
-      name: this.formular.value.name,
-      author: this.formular.value.author,
-      avialable: this.formular.value.avialable
+      firstName: this.form.value.firstName,
+      lastName: this.form.value.lastName,
+      title: this.form.value.title,
+      isbn: this.form.value.isbn,
+      avialable: this.form.value.avialable
     });
-    this.formular.reset();
+    this.form.reset();
   }
 
   public edit(): void{
-    this.editBook.emit(this.formular.value);
-    // this.editBook.emit({
-    //   id: this.formular.value.id,
-    //   name: this.formular.value.name,
-    //   author: this.formular.value.author,
-    //   avialable: this.formular.value.avialable
-    // });
-    this.formular.reset();
+    this.editBook.emit(this.form.value);
+    this.form.reset();
   }
 
   public remove(): void{
-
+    this.book = undefined;
+    this.form.reset();
   }
 }

@@ -17,10 +17,6 @@ export class KnihyZoznamComponent {
   @Output()
   removeBook: EventEmitter<Book> = new EventEmitter<Book>();
 
-
-  constructor() { }
-
-
   edit(book: Book): void{
     this.editBook.emit(book);
   }
