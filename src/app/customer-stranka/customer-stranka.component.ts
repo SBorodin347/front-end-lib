@@ -38,19 +38,32 @@ export class CustomerStrankaComponent implements OnInit{
       this.router.navigate(['']);
     }
 
+  // musela som to spravit takto, kedze mi inak hadzalo POST error 400 a do IDEA pisalo:
+  // 'Cannot deserialize value of type `long` from String "0.45758060280826385"'
+  // je tam nejaky problem s tym id aj ked mam vsetko rovnako ako je vo vzorovom priklade
     add(customer: Customer): void{
-      this.customerService.createCustomer(customer).subscribe(data => {
-        console.log('prislo: ' + data);
-        this.refreshCustomers();
-      });
+      // console.log('Prislo:',customer.id);
+      this.customerService.createCustomer({
+        firstName: customer.firstName,
+        lastName: customer.lastName,
+        contact: customer.contact}).subscribe(data => {
+          console.log('prislo: ' + data);
+          this.refreshCustomers();
+        });
       // this.customers.push(customer);
     }
 
     edit(customer: Customer): void{
-      const index = this.customers.findIndex(customerFromList => customerFromList.id === customer.id);
-      if(index !== -1){
-        this.customers[index] = customer;
-      }
+      // const index = this.customers.findIndex(customerFromList => customerFromList.id === customer.id);
+      // if(index !== -1){
+      //   this.customers[index] = customer;
+      // }
+
+      this.customerService.updateCustomer(customer.id, customer).subscribe(data => {
+        console.log('edited: ', customer);
+        this.refreshCustomers();
+      });
+
     }
 
     editCustomerFromList(customer: Customer): void{
@@ -58,9 +71,11 @@ export class CustomerStrankaComponent implements OnInit{
     }
 
     removeCustomerFromList(customer: Customer): void{
-      const index = this.customers.findIndex(customerArray => customerArray.id === customer.id);
-      if (index !== -1){
-        this.customers.splice(index, 1);
-      }
+
+      this.customerService.deleteCustomer(customer.id).subscribe(data => {
+        console.log('deleted: ' + data);
+        this.refreshCustomers();
+      });
+
     }
 }

@@ -16,7 +16,7 @@ export class CustomerService {
   }
 
   getCustomer(customerId: string): Observable<Customer> {
-    return this.http.get<Customer>(`${this.apiUrl}/${customerId}`); //vlavo hore na ENG keyboard
+    return this.http.get<Customer>(`${this.apiUrl}/${customerId}`); //` vlavo hore na ENG keyboard
   }
 
   createCustomer(customer: Customer): Observable<Customer> {

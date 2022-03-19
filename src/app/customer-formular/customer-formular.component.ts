@@ -10,9 +10,10 @@ import {FormControl, FormGroup} from "@angular/forms";
 export class CustomerFormularComponent{
 
   @Input()
-  set customer(data: Customer | undefined){
-    if(data)
+  set customer(data: Customer){
+    if(data) {
       this.fillForm(data);
+    }
   }
 
   @Output()
@@ -21,10 +22,10 @@ export class CustomerFormularComponent{
   @Output()
   editCustomer = new EventEmitter<Customer>();
 
-  @Output()
-  removeCustomer = new EventEmitter<Customer>();
+  // @Output()
+  // removeCustomer = new EventEmitter<Customer>();
 
-  form!: FormGroup;
+  form: FormGroup;
 
   constructor() {
     this.createForm();
@@ -46,10 +47,10 @@ export class CustomerFormularComponent{
     //   lastName: customer.lastName,
     //   contact: customer.contact
     // })
-    this.form.controls["id"].setValue(customer.id);
-    this.form.controls["firstName"].setValue(customer.firstName);
-    this.form.controls["lastName"].setValue(customer.lastName);
-    this.form.controls["contact"].setValue(customer.contact);
+    this.form.controls.id.setValue(customer.id);
+    this.form.controls.firstName.setValue(customer.firstName);
+    this.form.controls.lastName.setValue(customer.lastName);
+    this.form.controls.contact.setValue(customer.contact);
   }
 
   public add(): void{

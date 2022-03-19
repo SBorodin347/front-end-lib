@@ -1,4 +1,10 @@
-<table>
+<h1>Zakaznici - zoznam</h1>
+
+<div *ngIf="!customers || customers?.length === 0">
+  Zoznam osôb je prázdny.
+</div>
+
+<table class="table" *ngIf="customers?.length > 0">
   <thead>
   <th>ID</th>
   <th>FIRST NAME</th>
