@@ -12,11 +12,17 @@ import { KnihyZoznamComponent } from './knihy-zoznam/knihy-zoznam.component';
 import { KnihaStrankaComponent } from './kniha-stranka/kniha-stranka.component';
 import {MenuComponent} from "./menu/menu.component";
 import {HttpClientModule} from "@angular/common/http";
+import {BorrowingZoznamComponent} from "./borrowing-zoznam/borrowing-zoznam.component";
+import {BorrowingStrankaComponent} from "./borrowing-stranka/borrowing-stranka.component";
+import {BorrowingFormularComponent} from "./borrowing-formular/borrowing-formular.component";
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    BorrowingZoznamComponent,
+    BorrowingStrankaComponent,
+    BorrowingFormularComponent,
     KnihaFormularComponent,
     KnihyZoznamComponent,
     KnihaStrankaComponent,

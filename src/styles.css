@@ -1,1 +1,96 @@
 /* You can add global styles to this file, and also import other style files */
+
+body{
+  margin: 0;
+  padding: 36px;
+  font-family: 'Inter', sans-serif;
+}
+
+h1{
+  line-height: 36px;
+}
+
+label{
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+input {
+  width: 100%;
+  padding: 12px 20px;
+  display: inline-block;
+  border: 1px solid #E0E2E8;
+  border-radius: 8px;
+  box-sizing: border-box;
+  margin: 8px 0 16px 0;
+}
+
+.container{
+  width: 540px;
+}
+
+#table {
+  border-collapse: collapse;
+  border: 1px solid #E8E9ED;
+}
+
+#table td, #table th {
+  padding: 8px;
+}
+#table tr{
+  border: 1px solid #E8E9ED;
+}
+
+#table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #FAFAFA;
+  color: #24262F;
+}
+
+.btn-focus{
+  font-family: 'Inter', sans-serif;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px 16px;
+  background: #3A72FE;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  margin-right: 8px;
+}
+
+.btn-remove{
+  font-family: 'Inter', sans-serif;
+  color: #F90000;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px 16px;
+  background: #FFEFEF;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  margin-right: 8px;
+}
+
+.btn-secondary{
+  font-family: 'Inter', sans-serif;
+  color: #24262F;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px 16px;
+  background: #F6F7F7;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  margin-right: 8px;
+}
+
+.btn-secondary:hover{
+  transition: 0.3s;
+  background: #EDEDED;
+}
+

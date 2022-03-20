@@ -1,19 +1,19 @@
-<h1>Zoznam kníh</h1>
+<h1>List of books</h1>
 
 <div *ngIf="!books || books?.length === 0">
-  Zoznam osôb je prázdny.
+  List of books is empty
 </div>
 
 
-<table class="table" *ngIf="books.length > 0">
+<table id="table" *ngIf="books.length > 0">
   <thead>
   <tr>
     <th>ID</th>
-    <th>Meno</th>
-    <th>Priezvisko</th>
-    <th>Názov</th>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Title of book</th>
     <th>ISBN</th>
-    <th>Počet kusov</th>
+    <th>Count</th>
     <th></th>
   </tr>
   </thead>
@@ -28,8 +28,8 @@
     <td>{{ book.bookCount }}</td>
 
     <td>
-      <button (click)="edit(book)">Upraviť</button>
-      <button (click)="remove(book)">Zmazať</button>
+      <button clas="btn-secondary" (click)="edit(book)">Edit</button>
+      <button (click)="remove(book)">Delete</button>
     </td>
 
   </tr>

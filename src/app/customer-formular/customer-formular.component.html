@@ -1,16 +1,17 @@
-<h1>Zakaznici - formular</h1>
+<h1>New customer</h1>
+<div class="container">
 <form [formGroup]="form">
-  <label>Meno:
-    <input formControlName="firstName">
+ <label>First name
+    <input class="input" formControlName="firstName">
   </label><br>
-  <label>Priezvisko:
-    <input formControlName="lastName">
+  <label>Last name
+    <input class="input" formControlName="lastName">
   </label><br>
-  <label>Kontakt:
-    <input formControlName="contact">
+  <label>Contact
+    <input class="input" formControlName="contact">
   </label><br>
-  <button (click)="add()" *ngIf="form.value.id === null">Pridaj</button>&nbsp;
-  <button (click)="edit()" *ngIf="form.value.id !== null">Edit</button>&nbsp;
-  <button (click)="remove()">Vymaž</button>
+  <button class="btn-focus" (click)="add()" *ngIf="form.value.id === null">Create</button>
+  <button class="btn-focus" (click)="edit()" *ngIf="form.value.id !== null">Edit</button>
+  <button class="btn-remove" (click)="remove()">Delete</button>
 </form>
-
+</div>

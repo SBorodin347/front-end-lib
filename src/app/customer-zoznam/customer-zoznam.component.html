@@ -1,15 +1,16 @@
-<h1>Zakaznici - zoznam</h1>
+<h1>List of customers</h1>
 
 <div *ngIf="!customers || customers?.length === 0">
-  Zoznam osôb je prázdny.
+  List of customers is empty
 </div>
 
-<table class="table" *ngIf="customers?.length > 0">
+<table class="table" id="table" *ngIf="customers?.length > 0">
   <thead>
   <th>ID</th>
   <th>FIRST NAME</th>
   <th>LAST NAME</th>
   <th>CONTACT</th>
+  <th></th>
   </thead>
   <tbody>
   <tr *ngFor="let c of customers">
@@ -18,8 +19,8 @@
     <td>{{c.lastName}}</td>
     <td>{{c.contact}}</td>
     <td>
-      <button (click)="edit(c)">Edit</button>
-      <button (click)="remove(c)">Vymaž</button>
+        <button class="btn-secondary" (click)="edit(c)">Edit</button>
+        <button class="btn-remove" (click)="remove(c)">Delete</button>
     </td>
   </tr>
   </tbody>
