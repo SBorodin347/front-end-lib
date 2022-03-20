@@ -1,4 +1,4 @@
-import { Component} from '@angular/core';
+import {Component} from '@angular/core';
 import {Router} from "@angular/router";
 import {Book} from "../models/kniha.model";
 
@@ -8,14 +8,12 @@ import {Book} from "../models/kniha.model";
   templateUrl: './kniha-stranka.component.html',
   styleUrls: ['./kniha-stranka.component.css']
 })
-export class KnihaStrankaComponent {
-
-  title = 'BOOK';
-
-  constructor(private router: Router) {
-  }
+export class KnihaStrankaComponent{
 
   books: Book[] = [];
+
+  constructor(private router: Router) { }
+
   aktBook: Book = {name: 'The Hobbit', author: 'J.R.R Tolkien', available: 0};
 
   chodSpat(): void{

@@ -15,6 +15,9 @@ export class MenuComponent {
   constructor(private router: Router) { }
 
   otvorMenu(m: MENU) {
+    if (m === MENU.OSOBY) {
+      this.router.navigate(['/customers']);
+    }
     if (m === MENU.KNIHY) {
       this.router.navigate(['/books']);
     }
