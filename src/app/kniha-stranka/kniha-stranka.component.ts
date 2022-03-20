@@ -27,7 +27,7 @@ export class KnihaStrankaComponent implements OnInit{
       console.log('prislo:', data);
       this.books = [];
       for (const d of data) {
-        this.books.push({firstName: d.firstName, lastName: d.lastName, title: d.title, isbn: d.isbn, id: d.id, avialable: d.avialable});
+        this.books.push({authorFirstName: d.authorFirstName, authorLastName: d.authorLastName, title: d.title, isbn: d.isbn, id: d.id, bookCount: d.bookCount});
       }
     });
   }

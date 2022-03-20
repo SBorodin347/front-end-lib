@@ -1,29 +1,29 @@
 export class Book {
-  id?: string;
-  firstName: string;
-  lastName: string;
+  id?: number;
+  authorFirstName: string;
+  authorLastName: string;
   title: string;
   isbn: string;
-  avialable: number;
+  bookCount: number;
 
 
   constructor(book: Book) {
     this.id = book.id;
-    this.firstName = book.firstName;
-    this.lastName = book.lastName;
+    this.authorFirstName = book.authorFirstName;
+    this.authorLastName = book.authorLastName;
     this.title = book.title;
     this.isbn = book.isbn;
-    this.avialable = book.avialable;
+    this.bookCount = book.bookCount;
   }
 }
 
 export class BookList {
-  id?: string;
+  id?: number;
   firstName: string;
   lastName: string;
   title: string;
   isbn: string;
-  avialable: number;
+  bookCount: number;
 
   constructor(book: BookList) {
     this.id = book.id;
@@ -31,6 +31,6 @@ export class BookList {
     this.lastName = book.lastName;
     this.title = book.title;
     this.isbn = book.isbn;
-    this.avialable = book.avialable;
+    this.bookCount = book.bookCount;
   }
 }

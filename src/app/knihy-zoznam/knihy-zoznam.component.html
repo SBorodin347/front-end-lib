@@ -21,11 +21,11 @@
   <tbody>
   <tr *ngFor="let book of books">
     <td>{{ book.id }}</td>
-    <td>{{ book.firstName }}</td>
-    <td>{{ book.lastName }}</td>
+    <td>{{ book.authorFirstName }}</td>
+    <td>{{ book.authorLastName }}</td>
     <td>{{ book.title }}</td>
     <td>{{ book.isbn }}</td>
-    <td>{{ book.avialable }}</td>
+    <td>{{ book.bookCount }}</td>
 
     <td>
       <button (click)="edit(book)">Upraviť</button>

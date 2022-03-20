@@ -35,32 +35,31 @@ export class KnihaFormularComponent {
   private createForm(): void {
     this.form = new FormGroup({
       id: new FormControl(null),
-      firstName: new FormControl(null),
-      lastName: new FormControl(null),
+      authorFirstName: new FormControl(null),
+      authorLastName: new FormControl(null),
       title: new FormControl(null),
       isbn: new FormControl(null),
-      avialable: new FormControl(null)
+      bookCount: new FormControl(null)
     });
   }
 
   private fillForm(book: Book): void {
     this.form.controls["id"].setValue(book.id);
-    this.form.controls["firstName"].setValue(book.firstName);
-    this.form.controls["lastName"].setValue(book.lastName);
+    this.form.controls["authorFirstName"].setValue(book.authorFirstName);
+    this.form.controls["authorLastName"].setValue(book.authorLastName);
     this.form.controls["title"].setValue(book.title);
     this.form.controls["isbn"].setValue(book.isbn);
-    this.form.controls["avialable"].setValue(book.avialable);
+    this.form.controls["bookCount"].setValue(book.bookCount);
   }
 
 
   public add(): void{
     this.addBook.emit({
-      id: Math.random().toString(), //generovanie náhodného ID
-      firstName: this.form.value.firstName,
-      lastName: this.form.value.lastName,
+      authorFirstName: this.form.value.authorFirstName,
+      authorLastName: this.form.value.authorLastName,
       title: this.form.value.title,
       isbn: this.form.value.isbn,
-      avialable: this.form.value.avialable
+      bookCount: this.form.value.bookCount
     });
     this.form.reset();
   }

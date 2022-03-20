@@ -2,9 +2,9 @@
 
 <form [formGroup]="form">
   meno:
-  <input formControlName="firstName"><br>
+  <input formControlName="authorFirstName"><br>
   priezvisko:
-  <input formControlName="lastName"><br>
+  <input formControlName="authorLastName"><br>
   názov:
   <input formControlName="title"><br>
   isbn:
@@ -12,7 +12,7 @@
   id:
   <input formControlName="id"><br>
   dostupné kusy:
-  <input formControlName="avialable"><br>
+  <input formControlName="bookCount"><br>
   <button (click)="add()" *ngIf="form.value.id === null">Pridaj</button>&nbsp;
   <button (click)="edit()" *ngIf="form.value.id !== null">Edit</button>&nbsp;&nbsp;
   <button (click)="remove()">Vymaž</button>
