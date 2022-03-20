@@ -1,5 +1,3 @@
-<h1>Knihy</h1>
-
 <app-kniha-formular [book]="aktBook"
                     (addBook)="add($event)"
                     (editBook)="edit($event)">
@@ -10,7 +8,7 @@
                   (editBook)="editBookFromList($event)"
                   (removeBook)="removeBookFromList($event)">
 </app-knihy-zoznam>
-
+<br>
 <div>
-  <button (click)="goBack()">SPÄŤ</button>
+  <button class="btn-secondary" (click)="goBack()">Back</button>
 </div>
