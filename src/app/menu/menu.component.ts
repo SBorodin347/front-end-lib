@@ -21,6 +21,9 @@ export class MenuComponent {
     if (m === MENU.KNIHY) {
       this.router.navigate(['/books']);
     }
+    if (m === MENU.VYPOZICKY) {
+      this.router.navigate(['/borrowings']);
+    }
   }
 
 }
