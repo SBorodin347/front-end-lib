@@ -1,5 +1,5 @@
 export class Customer{
-  id?: string;
+  id?: number;
   firstName: string;
   lastName: string;
   contact: string;
@@ -14,7 +14,7 @@ export class Customer{
 }
 
 export class CustomerZoznam{
-  id?: string;
+  id?: number;
   firstName: string;
   lastName: string;
   contact: string;

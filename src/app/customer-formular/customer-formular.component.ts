@@ -55,7 +55,6 @@ export class CustomerFormularComponent{
 
   public add(): void{
     this.addCustomer.emit({
-      id: Math.random().toString(),
       firstName: this.form.value.firstName,
       lastName: this.form.value.lastName,
       contact: this.form.value.contact

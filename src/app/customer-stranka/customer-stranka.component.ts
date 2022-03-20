@@ -38,15 +38,8 @@ export class CustomerStrankaComponent implements OnInit{
       this.router.navigate(['']);
     }
 
-  // musela som to spravit takto, kedze mi inak hadzalo POST error 400 a do IDEA pisalo:
-  // 'Cannot deserialize value of type `long` from String "0.45758060280826385"'
-  // je tam nejaky problem s tym id aj ked mam vsetko rovnako ako je vo vzorovom priklade
     add(customer: Customer): void{
-      // console.log('Prislo:',customer.id);
-      this.customerService.createCustomer({
-        firstName: customer.firstName,
-        lastName: customer.lastName,
-        contact: customer.contact}).subscribe(data => {
+      this.customerService.createCustomer(customer).subscribe(data => {
           console.log('prislo: ' + data);
           this.refreshCustomers();
         });
