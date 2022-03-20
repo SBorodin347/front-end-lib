@@ -1,22 +1,37 @@
-  <table>
-    <thead>
-      <th>ID</th>
-      <th>NAME</th>
-      <th>AUTHOR</th>
-      <th>AVAILABILITY</th>
-    </thead>
-    <tbody>
-      <tr *ngFor="let b of books">
-        <td>{{b.id}}</td>
-        <td>{{b.name}}</td>
-        <td>{{b.author}}</td>
-        <td>{{b.available}}</td>
-        <td>
-          <button (click)="edit(b)">Edit</button>
-          <button (click)="remove(b)">Vymaž</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+<h1>Zoznam kníh</h1>
+
+<div *ngIf="!books || books?.length === 0">
+  Zoznam osôb je prázdny.
+</div>
 
 
+<table class="table" *ngIf="books.length > 0">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Meno</th>
+    <th>Priezvisko</th>
+    <th>Názov</th>
+    <th>ISBN</th>
+    <th>Počet kusov</th>
+    <th></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <tr *ngFor="let book of books">
+    <td>{{ book.id }}</td>
+    <td>{{ book.authorFirstName }}</td>
+    <td>{{ book.authorLastName }}</td>
+    <td>{{ book.title }}</td>
+    <td>{{ book.isbn }}</td>
+    <td>{{ book.bookCount }}</td>
+
+    <td>
+      <button (click)="edit(book)">Upraviť</button>
+      <button (click)="remove(book)">Zmazať</button>
+    </td>
+
+  </tr>
+  </tbody>
+</table>
