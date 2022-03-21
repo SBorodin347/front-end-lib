@@ -1,17 +1,27 @@
 <h1>New customer</h1>
 <div class="container">
-<form [formGroup]="form">
- <label>First name
-    <input class="input" formControlName="firstName">
-  </label><br>
+<form [formGroup]="form" >
+  <label>First name
+    <input class="input"
+           [ngClass]="{'input-error': form.get('firstName').invalid && form.get('firstName').touched}" formControlName="firstName" >
+   <span class="error-message" *ngIf="form.get('firstName').invalid && form.get('firstName').touched">Please, enter the client's first name</span>
+  </label>
+  <br>
   <label>Last name
-    <input class="input" formControlName="lastName">
-  </label><br>
+    <input class="input"  [ngClass]="{'input-error': form.get('lastName').invalid && form.get('lastName').touched}" formControlName="lastName">
+    <span class="error-message" *ngIf="form.get('lastName').invalid && form.get('lastName').touched">Please, enter the client's last name</span>
+  </label>
+  <br>
   <label>Contact
-    <input class="input" formControlName="contact">
+    <input class="input" [ngClass]="{'input-error': form.get('contact').invalid && form.get('contact').touched}" formControlName="contact">
+    <span class="error-message" *ngIf="form.get('contact').invalid && form.get('contact').touched">Please, enter the client's contact</span>
   </label><br>
-  <button class="btn-focus" (click)="add()" *ngIf="form.value.id === null">Create</button>
-  <button class="btn-focus" (click)="edit()" *ngIf="form.value.id !== null">Edit</button>
-  <button class="btn-secondary" (click)="remove()">Reset</button>
+
+  <div class="buttons-container">
+    <button [disabled]="form.invalid"  class="btn-focus" (click)="add()" *ngIf="form.value.id === null">Create</button>
+    <button class="btn-focus" (click)="edit()" *ngIf="form.value.id !== null">Edit</button>
+    <button class="btn-secondary" (click)="remove()">Reset</button>
+  </div>
+
 </form>
 </div>

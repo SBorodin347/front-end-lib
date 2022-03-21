@@ -1,9 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
-
+* {
+  box-sizing: border-box;
+}
 body{
-  margin: 0;
+  margin: 0 auto;
+  scrollbar-width: none;
   padding: 36px;
   font-family: 'Inter', sans-serif;
+}
+a:active,
+a:hover,
+a:visited,
+a {
+  text-decoration: none;
+}
+input,
+textarea {
+  outline: none;
 }
 
 h1{
@@ -14,16 +27,6 @@ label{
   font-size: 14px;
   font-weight: 500;
   line-height: 20px;
-}
-
-input {
-  width: 100%;
-  padding: 12px 20px;
-  display: inline-block;
-  border: 1px solid #E0E2E8;
-  border-radius: 8px;
-  box-sizing: border-box;
-  margin: 8px 0 16px 0;
 }
 
 .container{
@@ -79,6 +82,11 @@ input {
   transition: 0.3s;
 }
 
+.btn-focus:disabled, .btn-focus[disabled=disabled]{
+  background: #6590FE;
+  cursor: not-allowed;
+}
+
 .btn-remove{
   font-family: 'Inter', sans-serif;
   color: #F90000;
@@ -115,3 +123,35 @@ input {
   background: #EDEDED;
 }
 
+input {
+  width: 100%;
+  padding: 12px 12px;
+  border: 1px solid #E0E2E8;
+  border-radius: 8px;
+  margin: 8px 0 16px 0;
+}
+
+.input:active{
+}
+
+.input:focus{
+  border: 1.5px solid #B6CBFE;
+  outline: 3px solid #E6EEFE;
+  transition: 0.05s;
+}
+.error-message{
+  color: #F80100;
+  font-weight: 400;
+  font-size: 12px;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+.input-error{
+  margin: 8px 0 4px 0;
+  border: 1.5px solid #F90000;
+}
+
+.buttons-container{
+  margin: 12px 0;
+}
