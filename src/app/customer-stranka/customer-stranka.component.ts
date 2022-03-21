@@ -1,7 +1,9 @@
 import {Component, OnInit} from "@angular/core";
 import {Router} from "@angular/router";
-import {Customer} from "../models/customer.model";
+import {Customer, CustomerZoznam} from "../models/customer.model";
 import {CustomerService} from "../../customer.service";
+
+
 
 @Component({
   selector: 'app-customer-stranka',
@@ -10,7 +12,7 @@ import {CustomerService} from "../../customer.service";
 })
 export class CustomerStrankaComponent implements OnInit{
 
-    customers: Customer[] = [];
+    customers: CustomerZoznam[] = [];
     actCustomer?: Customer;
 
     constructor(private router: Router, private customerService: CustomerService) { }
@@ -27,10 +29,7 @@ export class CustomerStrankaComponent implements OnInit{
     refreshCustomers(): void{
       this.customerService.getCustomers().subscribe(data => {
         console.log('Prislo:',data);
-        this.customers = [];
-        for (const d of data){
-          this.customers.push({id: d.id, firstName: d.firstName, lastName: d.lastName, contact: d.contact});
-        }
+         this.customers=data;
       });
     }
 
@@ -47,26 +46,23 @@ export class CustomerStrankaComponent implements OnInit{
     }
 
     edit(customer: Customer): void{
-      // const index = this.customers.findIndex(customerFromList => customerFromList.id === customer.id);
-      // if(index !== -1){
-      //   this.customers[index] = customer;
-      // }
+      if(customer.id!==undefined){
+        this.customerService.updateCustomer(customer.id, customer).subscribe(data => {
+          console.log('edited: ', customer);
+          this.refreshCustomers();
+        });
+      }
+    }
 
-      this.customerService.updateCustomer(customer.id, customer).subscribe(data => {
-        console.log('edited: ', customer);
-        this.refreshCustomers();
+    editCustomerFromList(customerId: number): void{
+      this.customerService.getCustomer(customerId).subscribe(data => {
+        console.log('prislo: ' , data);
+        this.actCustomer = data;
       });
-
     }
 
-    editCustomerFromList(customer: Customer): void{
-      this.actCustomer = customer;
-    }
-
-    removeCustomerFromList(customer: Customer): void{
-
-      this.customerService.deleteCustomer(customer.id).subscribe(data => {
-        console.log('deleted: ' + data);
+    removeCustomerFromList(customerId: number): void{
+      this.customerService.deleteCustomer(customerId).subscribe(data => {
         this.refreshCustomers();
       });
 

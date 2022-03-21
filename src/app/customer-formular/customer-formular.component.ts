@@ -22,9 +22,6 @@ export class CustomerFormularComponent{
   @Output()
   editCustomer = new EventEmitter<Customer>();
 
-  // @Output()
-  // removeCustomer = new EventEmitter<Customer>();
-
   form: FormGroup;
 
   constructor() {
@@ -41,12 +38,6 @@ export class CustomerFormularComponent{
   }
 
   private fillForm(customer: Customer): void{
-    // this.form.setValue({
-    //   id: customer.id,
-    //   firstName: customer.firstName,
-    //   lastName: customer.lastName,
-    //   contact: customer.contact
-    // })
     this.form.controls.id.setValue(customer.id);
     this.form.controls.firstName.setValue(customer.firstName);
     this.form.controls.lastName.setValue(customer.lastName);
@@ -54,11 +45,7 @@ export class CustomerFormularComponent{
   }
 
   public add(): void{
-    this.addCustomer.emit({
-      firstName: this.form.value.firstName,
-      lastName: this.form.value.lastName,
-      contact: this.form.value.contact
-    });
+    this.addCustomer.emit(this.form.value);
     this.form.reset();
   }
 

@@ -15,7 +15,7 @@ export class CustomerService {
     return this.http.get<CustomerZoznam[]>(`${this.apiUrl}`);
   }
 
-  getCustomer(customerId: string): Observable<Customer> {
+  getCustomer(customerId: number): Observable<Customer> {
     return this.http.get<Customer>(`${this.apiUrl}/${customerId}`); //` vlavo hore na ENG keyboard
   }
 

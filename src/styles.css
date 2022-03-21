@@ -42,6 +42,12 @@ input {
   border: 1px solid #E8E9ED;
 }
 
+#table tr:hover{
+  background: #FAFAFA;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
 #table th {
   padding-top: 12px;
   padding-bottom: 12px;
@@ -63,6 +69,16 @@ input {
   margin-right: 8px;
 }
 
+.btn-focus:hover{
+  background: #4177FE;
+  transition: 0.3s;
+}
+
+.btn-focus:active{
+  background: #316AF9;
+  transition: 0.3s;
+}
+
 .btn-remove{
   font-family: 'Inter', sans-serif;
   color: #F90000;
@@ -74,6 +90,11 @@ input {
   border: none;
   cursor: pointer;
   margin-right: 8px;
+}
+
+.btn-remove:hover{
+  background: #FEE7E6;
+  transition: 0.3s;
 }
 
 .btn-secondary{

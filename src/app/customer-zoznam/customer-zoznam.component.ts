@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, Output} from "@angular/core";
-import {Customer} from "../models/customer.model";
+import {Customer, CustomerZoznam} from "../models/customer.model";
 
 @Component({
   selector: 'app-customer-zoznam',
@@ -10,20 +10,20 @@ export class CustomerZoznamComponent{
   constructor() {}
 
   @Input()
-  customers: Customer[] = [];
+  customers: CustomerZoznam[] = [];
 
   @Output()
-  editCustomer: EventEmitter<Customer> = new EventEmitter<Customer>();
+  editCustomer: EventEmitter<number> = new EventEmitter<number>();
 
   @Output()
-  removeCustomer: EventEmitter<Customer> = new EventEmitter<Customer>();
+  removeCustomer: EventEmitter<number> = new EventEmitter<number>();
 
-  edit(customer: Customer): void{
-    this.editCustomer.emit(customer);
+  edit(customerId: number): void{
+    this.editCustomer.emit(customerId);
   }
 
-  remove(customer: Customer): void{
-    this.removeCustomer.emit(customer);
+  remove(customerId: number): void{
+    this.removeCustomer.emit(customerId);
   }
 
 
