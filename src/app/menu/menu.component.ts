@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {Router} from '@angular/router';
 
+
 enum MENU { OSOBY, KNIHY, VYPOZICKY }
 
 @Component({

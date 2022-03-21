@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, Output} from "@angular/core";
 import {Customer} from "../models/customer.model";
-import {FormControl, FormGroup} from "@angular/forms";
+import {FormControl, FormGroup, Validator, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-customer-formular',
@@ -28,12 +28,13 @@ export class CustomerFormularComponent{
     this.createForm();
   }
 
+
   private createForm(): void{
     this.form = new FormGroup({
       id: new FormControl(null),
-      firstName: new FormControl(null),
-      lastName: new FormControl(null),
-      contact: new FormControl(null)
+      firstName: new FormControl(null, Validators.required),
+      lastName: new FormControl(null, Validators.required),
+      contact: new FormControl(null, Validators.required)
     });
   }
 
@@ -45,8 +46,11 @@ export class CustomerFormularComponent{
   }
 
   public add(): void{
-    this.addCustomer.emit(this.form.value);
-    this.form.reset();
+    if(this.form.valid){
+
+      this.addCustomer.emit(this.form.value);
+      this.form.reset();
+    }
   }
 
   public edit(): void{
