@@ -28,6 +28,7 @@ export class CustomerFormularComponent{
     this.createForm();
   }
 
+
   private createForm(): void{
     this.form = new FormGroup({
       id: new FormControl(null),
@@ -46,6 +47,7 @@ export class CustomerFormularComponent{
 
   public add(): void{
     if(this.form.valid){
+
       this.addCustomer.emit(this.form.value);
       this.form.reset();
     }
