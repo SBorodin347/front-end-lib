@@ -11,10 +11,10 @@
   <input formControlName="isbn"><br></label>
   <label>Id
   <input formControlName="id"><br></label>
-  <label> Count
-  <input formControlName="bookCount"><br></label>
+  <label> Amount of books
+  <input type="number" formControlName="bookCount"><br></label>
   <button class="btn-focus" (click)="add()" *ngIf="form.value.id === null">Create</button>
-  <button class="btn-secondary" (click)="edit()" *ngIf="form.value.id !== null">Edit</button>
-  <button class="btn-remove" (click)="remove()">Delete</button>
+  <button class="btn-focus" (click)="edit()" *ngIf="form.value.id !== null">Edit</button>
+  <button class="btn-secondary" (click)="remove()">Reset</button>
 </form>
 </div>
