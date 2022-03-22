@@ -150,6 +150,29 @@ label{
   margin-right: 8px;
 }
 
+.btn-orange{
+  font-family: 'Inter', sans-serif;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px 16px;
+  background: #FF691F;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-orange:hover{
+  background: #FE6F28;
+  transition: 0.3s;
+}
+
+.btn-orange:active{
+  background: #F96117;
+  transition: 0.3s;
+}
+
+
 .btn-secondary:hover{
   transition: 0.3s;
   background: #EDEDED;
