@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, Output} from "@angular/core";
 import {Customer} from "../models/customer.model";
 import {FormControl, FormGroup, Validator, Validators} from "@angular/forms";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-customer-formular',
@@ -24,10 +25,9 @@ export class CustomerFormularComponent{
 
   form: FormGroup;
 
-  constructor() {
+  constructor(private router: Router) {
     this.createForm();
   }
-
 
   private createForm(): void{
     this.form = new FormGroup({
@@ -44,10 +44,20 @@ export class CustomerFormularComponent{
     this.form.controls.lastName.setValue(customer.lastName);
     this.form.controls.contact.setValue(customer.contact);
   }
+  chodSpat(): void{
+    this.router.navigate(['']);
+  }
+  goBooks(): void{
+    this.router.navigate(['/books']);
+  }
+
+  goBorrowings(): void{
+    this.router.navigate(['/borrowings']);
+  }
+
 
   public add(): void{
     if(this.form.valid){
-
       this.addCustomer.emit(this.form.value);
       this.form.reset();
     }

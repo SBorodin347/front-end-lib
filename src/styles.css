@@ -1,12 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+
+
 * {
   box-sizing: border-box;
 }
+
 body{
   margin: 0 auto;
   scrollbar-width: none;
   padding: 36px;
   font-family: 'Inter', sans-serif;
+  background: #F6F7F7;
 }
 a:active,
 a:hover,
@@ -20,7 +24,10 @@ textarea {
 }
 
 h1{
-  line-height: 36px;
+  font-family: 'Poppins';
+  font-weight: 600;
+  margin: 0 0 10px auto;
+  line-height: 40px;
 }
 
 label{
@@ -30,25 +37,50 @@ label{
 }
 
 .container{
-  width: 540px;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 16px;
+  width: 460px;
+}
+.wrap{
+  max-width: 620px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  background: #fff;
+  padding: 32px;
+  border-radius: 12px;
+}
+
+.wrap-customer{
+  position: relative;
+  max-width: 1180px;
 }
 
 #table {
+  width: 100%;
   border-collapse: collapse;
-  border: 1px solid #E8E9ED;
+  /*border: 1px solid #E8E9ED;*/
 }
 
 #table td, #table th {
-  padding: 8px;
+  padding: 16px;
 }
 #table tr{
-  border: 1px solid #E8E9ED;
+  /*border: 1px solid #E8E9ED;*/
 }
 
 #table tr:hover{
   background: #FAFAFA;
   cursor: pointer;
   transition: 0.3s;
+}
+
+#table td{
+  max-width: 120px;
+  white-space: nowrap; /* Запрещаем перенос строк */
+  overflow: hidden; /* Обрезаем все, что не помещается в область */
+  text-overflow: ellipsis; /* Добавляем многоточие */
 }
 
 #table th {
@@ -83,7 +115,7 @@ label{
 }
 
 .btn-focus:disabled, .btn-focus[disabled=disabled]{
-  background: #6590FE;
+  background: #6D96FE;
   cursor: not-allowed;
 }
 
@@ -126,15 +158,17 @@ label{
 input {
   width: 100%;
   padding: 12px 12px;
-  border: 1px solid #E0E2E8;
+  background: #F8F8F8;
+  border: none;
   border-radius: 8px;
-  margin: 8px 0 16px 0;
+  margin: 8px 0 20px 0;
 }
 
-.input:active{
+input:active{
 }
 
-.input:focus{
+input:focus{
+  background: #fff;
   border: 1.5px solid #B6CBFE;
   outline: 3px solid #E6EEFE;
   transition: 0.05s;
@@ -153,5 +187,123 @@ input {
 }
 
 .buttons-container{
-  margin: 12px 0;
+  margin-top: 12px;
+  margin-bottom: 24px;
+}
+
+.list-menu{
+  margin-bottom: 48px;
+}
+
+.nav{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+img.img-menu{
+  display: block;
+  margin: 36px auto 36px auto;
+}
+
+img.img-customer{
+  margin: 32px auto 48px auto;
+}
+
+.h-center{
+  color: #24262F;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.description{
+  padding: 24px;
+  border: 1.5px dashed #ECEDEF;
+  border-radius: 12px;
+}
+
+.description-text{
+  color: #666C7B;
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.desc-block{
+  margin-bottom: 32px;
+}
+
+.btn-link{
+  font-family: 'Inter', sans-serif;
+  color: #24262F;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 6px 12px;
+  background: #F6F7F7;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  margin-right: 8px;
+  margin-bottom: 8px;
+}
+
+.btn-link:hover{
+  background: #F8F9F9;
+  transition: 0.5s;
+}
+
+.btn-black{
+  font-family: 'Inter', sans-serif;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 8px 16px 8px 12px;
+  background: #27BB5D;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-right: 12px;
+  justify-content: start;
+}
+.btn-black:hover{
+  transition: 0.3s;
+  background: #28BE5F;
+}
+.icons8-github {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4Igp3aWR0aD0iMjQiIGhlaWdodD0iMjQiCnZpZXdCb3g9IjAgMCAxNzIgMTcyIgpzdHlsZT0iIGZpbGw6IzAwMDAwMDsiPjxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0ibm9uemVybyIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIHN0cm9rZS1saW5lY2FwPSJidXR0IiBzdHJva2UtbGluZWpvaW49Im1pdGVyIiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHN0cm9rZS1kYXNoYXJyYXk9IiIgc3Ryb2tlLWRhc2hvZmZzZXQ9IjAiIGZvbnQtZmFtaWx5PSJub25lIiBmb250LXdlaWdodD0ibm9uZSIgZm9udC1zaXplPSJub25lIiB0ZXh0LWFuY2hvcj0ibm9uZSIgc3R5bGU9Im1peC1ibGVuZC1tb2RlOiBub3JtYWwiPjxwYXRoIGQ9Ik0wLDE3MnYtMTcyaDE3MnYxNzJ6IiBmaWxsPSJub25lIj48L3BhdGg+PGcgZmlsbD0iI2ZmZmZmZiI+PHBhdGggZD0iTTc4LjExNjY3LDE1LjA1Yy0zMi45NjY2NywzLjU4MzMzIC01OS40ODMzMywzMC4xIC02My4wNjY2Nyw2Mi4zNWMtMy41ODMzMywzMy42ODMzMyAxNS43NjY2Nyw2My43ODMzMyA0NS4xNSw3NS4yNWMyLjE1LDAuNzE2NjcgNC4zLC0wLjcxNjY3IDQuMywtMy41ODMzM3YtMTEuNDY2NjdjMCwwIC0yLjg2NjY3LDAuNzE2NjcgLTYuNDUsMC43MTY2N2MtMTAuMDMzMzMsMCAtMTQuMzMzMzMsLTguNiAtMTUuMDUsLTEzLjYxNjY3Yy0wLjcxNjY3LC0yLjg2NjY3IC0yLjE1LC01LjAxNjY3IC00LjMsLTcuMTY2NjdjLTIuMTUsLTAuNzE2NjcgLTIuODY2NjcsLTAuNzE2NjcgLTIuODY2NjcsLTEuNDMzMzNjMCwtMS40MzMzMyAyLjE1LC0xLjQzMzMzIDIuODY2NjcsLTEuNDMzMzNjNC4zLDAgNy44ODMzMyw1LjAxNjY3IDkuMzE2NjcsNy4xNjY2N2MzLjU4MzMzLDUuNzMzMzMgNy44ODMzMyw3LjE2NjY3IDEwLjAzMzMzLDcuMTY2NjdjMi44NjY2NywwIDUuMDE2NjcsLTAuNzE2NjcgNi40NSwtMS40MzMzM2MwLjcxNjY3LC01LjAxNjY3IDIuODY2NjcsLTEwLjAzMzMzIDcuMTY2NjcsLTEyLjljLTE2LjQ4MzMzLC0zLjU4MzMzIC0yOC42NjY2NywtMTIuOSAtMjguNjY2NjcsLTI4LjY2NjY3YzAsLTcuODgzMzMgMy41ODMzMywtMTUuNzY2NjcgOC42LC0yMS41Yy0wLjcxNjY3LC0xLjQzMzMzIC0xLjQzMzMzLC01LjAxNjY3IC0xLjQzMzMzLC0xMC4wMzMzM2MwLC0yLjg2NjY3IDAsLTcuMTY2NjcgMi4xNSwtMTEuNDY2NjdjMCwwIDEwLjAzMzMzLDAgMjAuMDY2NjcsOS4zMTY2N2MzLjU4MzMzLC0xLjQzMzMzIDguNiwtMi4xNSAxMy42MTY2NywtMi4xNWM1LjAxNjY3LDAgMTAuMDMzMzMsMC43MTY2NyAxNC4zMzMzMywyLjE1YzkuMzE2NjcsLTkuMzE2NjcgMjAuMDY2NjcsLTkuMzE2NjcgMjAuMDY2NjcsLTkuMzE2NjdjMS40MzMzMyw0LjMgMS40MzMzMyw4LjYgMS40MzMzMywxMS40NjY2N2MwLDUuNzMzMzMgLTAuNzE2NjcsOC42IC0xLjQzMzMzLDEwLjAzMzMzYzUuMDE2NjcsNS43MzMzMyA4LjYsMTIuOSA4LjYsMjEuNWMwLDE1Ljc2NjY3IC0xMi4xODMzMywyNS4wODMzMyAtMjguNjY2NjcsMjguNjY2NjdjNC4zLDMuNTgzMzMgNy4xNjY2NywxMC4wMzMzMyA3LjE2NjY3LDE2LjQ4MzMzdjE4LjYzMzMzYzAsMi4xNSAyLjE1LDQuMyA1LjAxNjY3LDMuNTgzMzNjMjYuNTE2NjcsLTEwLjc1IDQ1LjE1LC0zNi41NSA0NS4xNSwtNjYuNjVjMCwtNDMgLTM2LjU1LC03Ni42ODMzMyAtNzkuNTUsLTcxLjY2NjY3eiI+PC9wYXRoPjwvZz48L2c+PC9zdmc+') 50% 50% no-repeat;
+  background-size: 100%; }
+.icons8-angularjs {
+  display: inline-block;
+  width: 31px;
+  height: 31px;
+  background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4Igp3aWR0aD0iNTAiIGhlaWdodD0iNTAiCnZpZXdCb3g9IjAgMCAxNzIgMTcyIgpzdHlsZT0iIGZpbGw6IzAwMDAwMDsiPjxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0ibm9uemVybyIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIHN0cm9rZS1saW5lY2FwPSJidXR0IiBzdHJva2UtbGluZWpvaW49Im1pdGVyIiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHN0cm9rZS1kYXNoYXJyYXk9IiIgc3Ryb2tlLWRhc2hvZmZzZXQ9IjAiIGZvbnQtZmFtaWx5PSJub25lIiBmb250LXdlaWdodD0ibm9uZSIgZm9udC1zaXplPSJub25lIiB0ZXh0LWFuY2hvcj0ibm9uZSIgc3R5bGU9Im1peC1ibGVuZC1tb2RlOiBub3JtYWwiPjxwYXRoIGQ9Ik0wLDE3MnYtMTcyaDE3MnYxNzJ6IiBmaWxsPSJub25lIj48L3BhdGg+PGcgZmlsbD0iI2YzNDQzNiI+PHBhdGggZD0iTTg1Ljc1ODEzLDYuODg2NzJjLTAuMzc3OTcsMC4wMDE3MiAtMC43NTkxMSwwLjA2NDI4IC0xLjEyMjAzLDAuMTg4MTNsLTcyLjAwNDg1LDI1LjA2MDk0Yy0xLjUyNzM2LDAuNTI5NzYgLTIuNDgzODksMi4wNTUyNCAtMi4yODQzNywzLjY2MTcybDExLjM4MTU2LDkzLjMwMzI4YzAuMTM0MTYsMS4xMDQyNCAwLjc4NjYzLDIuMDc3MTEgMS43NjcwMywyLjYwNjg3bDYwLjcxMDYzLDMyLjk5NTc4YzAuNTA5MTIsMC4yNzg2NCAxLjA3NTIxLDAuNDE2NTYgMS42MzkzNywwLjQxNjU2YzAuNTY3NiwwIDEuMTQwMjUsLTAuMTQxMiAxLjY1MjgxLC0wLjQyMzI4bDYxLjAxOTY5LC0zMy40NDU5NGMwLjk3MDA4LC0wLjUzMzIgMS42Mjk1OSwtMS41MDI3OSAxLjc2MDMxLC0yLjYwMDE1bDExLjM3NDg1LC05My4yOTY1NmMwLjE5OTUyLC0xLjYxMzM2IC0wLjc2NjY5LC0zLjE1MjI4IC0yLjMxMTI1LC0zLjY3NTE2bC03Mi40Njg0NCwtMjQuNjE3NWMtMC4zNjEyLC0wLjEyMDQgLTAuNzM3MzQsLTAuMTc2NDEgLTEuMTE1MzEsLTAuMTc0Njl6TTg2LDI0LjA4bDQ0LjcyLDk2LjMyaC0xNS4yNjVsLTkuNTY3NSwtMjAuNjEzMTNoLTM5Ljc3NWwtOS41Njc1LDIwLjYxMzEzaC0xNS4yNjV6TTg2LDU2Ljc2bC0xMy40ODQ1MywyOS4yNGgyNi45NjkwNnoiPjwvcGF0aD48L2c+PC9nPjwvc3ZnPg==') 50% 50% no-repeat;
+  background-size: 100%; }
+
+.icn-block{
+  display: flex;
+  align-items: center;
+}
+
+.headline{
+  position: absolute;
+  top: 56px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.hr-custom{
+  color: #F3F4F6;
+  background-color:#F3F4F6;
+  border:0px none;
+  height: 1px;
+  clear:both;
+  margin: 16px 0 24px 0;
+}
+
+#col-btn{
+ text-align: end;
 }

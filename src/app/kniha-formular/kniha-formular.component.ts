@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Book} from "../models/kniha.model";
-import {FormControl, FormGroup} from "@angular/forms";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -28,18 +29,18 @@ export class KnihaFormularComponent {
 
   form!: FormGroup;
 
-  constructor() {
+  constructor(private router: Router) {
     this.createForm();
   }
 
   private createForm(): void {
     this.form = new FormGroup({
       id: new FormControl(null),
-      authorFirstName: new FormControl(null),
-      authorLastName: new FormControl(null),
-      title: new FormControl(null),
-      isbn: new FormControl(null),
-      bookCount: new FormControl(null)
+      authorFirstName: new FormControl(null, Validators.required),
+      authorLastName: new FormControl(null, Validators.required),
+      title: new FormControl(null, Validators.required),
+      isbn: new FormControl(null, Validators.required),
+      bookCount: new FormControl(null, [Validators.required, Validators.min(1)])
     });
   }
 
@@ -54,14 +55,10 @@ export class KnihaFormularComponent {
 
 
   public add(): void{
-    this.addBook.emit({
-      authorFirstName: this.form.value.authorFirstName,
-      authorLastName: this.form.value.authorLastName,
-      title: this.form.value.title,
-      isbn: this.form.value.isbn,
-      bookCount: this.form.value.bookCount
-    });
-    this.form.reset();
+    if(this.form.valid){
+      this.addBook.emit(this.form.value);
+      this.form.reset();
+    }
   }
 
   public edit(): void{
@@ -72,5 +69,15 @@ export class KnihaFormularComponent {
   public remove(): void{
     this.book = undefined;
     this.form.reset();
+  }
+
+  goHome(): void{
+    this.router.navigate(['/']);
+  }
+  goBorrowings(): void{
+    this.router.navigate(['/borrowings']);
+  }
+  goCustomers(): void{
+    this.router.navigate(['/customers']);
   }
 }

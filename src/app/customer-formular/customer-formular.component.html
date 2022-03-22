@@ -1,5 +1,15 @@
-<h1>New customer</h1>
+ <div class="nav"> <button class="btn-secondary" (click)="chodSpat()"><-- Home</button>
+
+ <div><button class="btn-secondary" (click)="goBooks()">📚&nbsp; Books</button>
+   <button class="btn-secondary" style="margin-right: 0" (click)="goBorrowings()">📄 &nbsp;Borrowings --></button></div>
+
+ </div>
+
+
 <div class="container">
+  <img class="img-menu img-customer" width="140px" src="https://i.ibb.co/XxPRBfh/customer.png">
+  <h1 class="h-center">New customer</h1>
+  <br>
 <form [formGroup]="form" >
   <label>First name
     <input class="input"
@@ -18,8 +28,8 @@
   </label><br>
 
   <div class="buttons-container">
-    <button [disabled]="form.invalid"  class="btn-focus" (click)="add()" *ngIf="form.value.id === null">Create</button>
-    <button class="btn-focus" (click)="edit()" *ngIf="form.value.id !== null">Edit</button>
+    <button [disabled]="form.invalid"  class="btn-focus" (click)="add()" *ngIf="form.value.id === null">Add customer</button>
+    <button [disabled]="form.invalid" class="btn-focus" (click)="edit()" *ngIf="form.value.id !== null">Update</button>
     <button class="btn-secondary" (click)="remove()">Reset</button>
   </div>
 

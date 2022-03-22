@@ -1,9 +1,25 @@
+<div class="nav"> <button class="btn-secondary" (click)="goHome()"><-- Home</button>
+
+  <div><button class="btn-secondary" (click)="goCustomers()">🕵️ &nbsp;Customers</button>
+    <button class="btn-secondary" style="margin-right: 0" (click)="goBooks()">📚 &nbsp;Books</button></div>
+
+</div>
+
 <div class="container">
-  id of borrowing:
-  <input [(ngModel)]="borrowing.id"><br>
-  id of book:
-  <input [(ngModel)]="borrowing.bookId"><br>
-  id of customer:
-  <input [(ngModel)]="borrowing.customerId"><br>
+  <img class="img-menu img-customer" width="140px" src="https://i.ibb.co/7ybvTKm/perspective-matte-3.png">
+  <h1 class="h-center">New borrowing</h1>
+  <br>
+  <label>Id of borrowing:
+    <input [(ngModel)]="borrowing.id"><br>
+  </label>
+
+  <label>Select a book:
+    <input [(ngModel)]="borrowing.bookId"><br>
+  </label>
+
+  <label>Select a customer:
+    <input [(ngModel)]="borrowing.customerId"><br>
+  </label>
+
 </div>
 

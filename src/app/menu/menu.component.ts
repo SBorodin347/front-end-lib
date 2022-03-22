@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {Router} from '@angular/router';
+import {Customer, CustomerZoznam} from "../models/customer.model";
+import {CustomerService} from "../../customer.service";
 
 
 enum MENU { OSOBY, KNIHY, VYPOZICKY }
@@ -12,8 +14,20 @@ enum MENU { OSOBY, KNIHY, VYPOZICKY }
 export class MenuComponent {
 
   menu = MENU;
+  customers: CustomerZoznam[] = [];
+  constructor(private router: Router, private customerService: CustomerService) { }
 
-  constructor(private router: Router) { }
+  ngOnInit(): void {
+
+    this.refreshCustomers();
+  }
+
+  refreshCustomers(): void{
+    this.customerService.getCustomers().subscribe(data => {
+      console.log('Prislo:',data);
+      this.customers=data;
+    });
+  }
 
   otvorMenu(m: MENU) {
     if (m === MENU.OSOBY) {
@@ -26,5 +40,9 @@ export class MenuComponent {
       this.router.navigate(['/borrowings']);
     }
   }
+
+
+
+
 
 }

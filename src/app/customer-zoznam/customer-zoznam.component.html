@@ -1,5 +1,5 @@
 <h1>List of customers</h1>
-
+<br>
 <div *ngIf="!customers || customers?.length === 0">
   List of customers is empty
 </div>
@@ -14,11 +14,13 @@
   <tbody>
   <tr *ngFor="let c of customers">
     <td>{{c.id}}</td>
-    <td>{{c.firstName}}&nbsp;{{c.lastName}}</td>
+    <td >{{c.firstName}}&nbsp;{{c.lastName}}</td>
     <td>{{c.contact}}</td>
     <td>
+      <div id="col-btn">
         <button class="btn-secondary" (click)="edit(c.id)">Edit</button>
         <button class="btn-remove" (click)="remove(c.id)">Delete</button>
+      </div>
     </td>
   </tr>
   </tbody>
