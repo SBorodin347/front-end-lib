@@ -1,4 +1,35 @@
-<button class="btn-secondary" (click)="otvorMenu(menu.OSOBY)">🕵️‍ Customers</button>
-<button class="btn-secondary" (click)="otvorMenu(menu.KNIHY)">📚 Books</button>
-<button class="btn-secondary" (click)="otvorMenu(menu.VYPOZICKY)">📄 Borrowings</button>
+<div class="wrap">
+ <div class="list-menu">
+   <button class="btn-secondary" (click)="otvorMenu(menu.OSOBY)">🕵️‍ Customers</button>
+   <button class="btn-secondary" (click)="otvorMenu(menu.KNIHY)">📚 Books</button>
+   <button class="btn-secondary" (click)="otvorMenu(menu.VYPOZICKY)">📄 Borrowings</button>
+ </div>
+  <img class="img-menu" width="160px" src="https://i.ibb.co/J55GKMc/Folder-perspective-matte-s.png">
+  <div class="description">
+    <h1>Welcome to the <span style="color:#3A72FE">UMBOOK</span></h1>
+
+    <div class="description-text"> Here you can create customers, books and borrowing (ooops, still not).
+      Don't forget to thank the authors of this wonderful app :)</div>
+  <hr class="hr-custom">
+ <div class="desc-block">
+   <div style="margin-bottom: 12px; font-size: 13px" class="description-text">DEVELOPERS (or just geniuses):</div>
+   <button class="btn-link">🥳 Dominika Kamenská</button>
+   <button class="btn-link">🤠 Vyacheslav Borodin</button>
+   <button style="margin-bottom: 0" class="btn-link">🤩 Tomáš Peregrin</button>
+ </div>
+
+    <div class="desc-block">
+      <div style="margin-bottom: 12px; font-size: 13px" class="description-text">USING TOOLS:</div>
+ <div class="icn-block"><div style="margin-right: 6px" class="icons8-angularjs"></div></div>
+    </div>
+ <div style="margin-bottom: 0; font-size: 13px" class="desc-block">
+   <div style="margin-bottom: 12px" class="description-text">REPOSITORY:</div>
+  <div class="icn-block">
+    <a href="https://github.com/SBorodin347/front-end-lib"><button class="btn-black"><div style="margin-right: 6px" class="icons8-github"></div>GITHUB</button></a>
+    <-- &nbsp;Check this for more details</div>
+ </div>
+
+  </div>
+<!--  <app-customer-zoznam [customers]="customers"></app-customer-zoznam>-->
+</div>
 

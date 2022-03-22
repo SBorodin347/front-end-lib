@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
-import {Book} from "../models/kniha.model";
+import {Book, BookList} from "../models/kniha.model";
 import {BookServiceService} from "../../book-service.service";
+import {CustomerZoznam} from "../models/customer.model";
 
 
 @Component({
@@ -24,11 +25,8 @@ export class KnihaStrankaComponent implements OnInit{
 
   refreshBooks(): void {
     this.bookService.getBooks().subscribe(data => {
-      console.log('prislo:', data);
-      this.books = [];
-      for (const d of data) {
-        this.books.push({authorFirstName: d.authorFirstName, authorLastName: d.authorLastName, title: d.title, isbn: d.isbn, id: d.id, bookCount: d.bookCount});
-      }
+      console.log('Prislo:',data);
+      this.books=data;
     });
   }
 
@@ -55,13 +53,11 @@ export class KnihaStrankaComponent implements OnInit{
     this.aktBook = book;
   }
 
-
-  removeBookFromList(book: Book) {
-    const index = this.books.findIndex(bookArray => bookArray.id === book.id);
-    if (index !== -1) {
-      this.books.splice(index, 1);
+  removeBookFromList(bookId: number): void {
+    this.bookService.deleteBook(bookId).subscribe(data => {
+      this.refreshBooks();
+      });
     }
-  }
 
 
 }

@@ -24,11 +24,11 @@ export class BookServiceService {
     return this.http.post<Book>(`${this.apiUrl}`, book);
   }
 
-  updateBook(bookId: string, book: Book): Observable<Book> {
+  updateBook(bookId: number, book: Book): Observable<Book> {
     return this.http.put<Book>( `${this.apiUrl}/${bookId}`, book);
   }
 
-  deleteBook(bookId: string): Observable<void> {
+  deleteBook(bookId: number): Observable<void> {
     return this.http.delete<void>( `${this.apiUrl}/${bookId}`);
   }
 

@@ -27,9 +27,10 @@
     <td>{{ book.isbn }}</td>
     <td>{{ book.bookCount }}</td>
 
-    <td>
-      <button class="btn-secondary" (click)="edit(book)">Edit</button>
-      <button  class="btn-remove" (click)="remove(book)">Delete</button>
+    <td> <div id="col-btn">
+        <button class="btn-secondary" (click)="edit(book.id)">Edit</button>
+        <button  class="btn-remove" (click)="remove(book.id)">Delete</button>
+    </div>
     </td>
 
   </tr>

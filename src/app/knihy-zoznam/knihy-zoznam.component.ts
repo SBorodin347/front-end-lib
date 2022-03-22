@@ -12,17 +12,17 @@ export class KnihyZoznamComponent {
   books: Book[] = []
 
   @Output()
-  editBook: EventEmitter<Book> = new EventEmitter<Book>();
+  editBook: EventEmitter<number> = new EventEmitter<number>();
 
   @Output()
-  removeBook: EventEmitter<Book> = new EventEmitter<Book>();
+  removeBook: EventEmitter<number> = new EventEmitter<number>();
 
-  edit(book: Book): void{
-    this.editBook.emit(book);
+  edit(bookId: number): void{
+    this.editBook.emit(bookId);
   }
 
-  remove(book: Book): void{
-    this.removeBook.emit(book);
+  remove(bookId: number): void{
+    this.removeBook.emit(bookId);
   }
 
 }

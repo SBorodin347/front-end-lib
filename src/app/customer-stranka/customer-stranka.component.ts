@@ -18,11 +18,6 @@ export class CustomerStrankaComponent implements OnInit{
     constructor(private router: Router, private customerService: CustomerService) { }
 
     ngOnInit(): void {
-      // httpclient kniznica
-      // this.customerService.getCustomers().subscribe(data => {
-      //   this.customers = data;
-      //   console.log('Prislo: ' + data);
-      // });
       this.refreshCustomers();
     }
 
@@ -65,6 +60,5 @@ export class CustomerStrankaComponent implements OnInit{
       this.customerService.deleteCustomer(customerId).subscribe(data => {
         this.refreshCustomers();
       });
-
     }
 }

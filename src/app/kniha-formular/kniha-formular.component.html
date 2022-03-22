@@ -1,20 +1,39 @@
-<h1>New book</h1>
+<div class="nav"> <button class="btn-secondary" (click)="goHome()"><-- Home</button>
+<div><button class="btn-secondary" (click)="goCustomers()">🕵️ &nbsp;Customers</button>
+  <button class="btn-secondary" style="margin-right: 0" (click)="goBorrowings()">📄 Borrowings --></button></div>  </div>
 <div class="container">
 <form [formGroup]="form">
+  <img class="img-menu img-customer" width="160px" src="https://i.ibb.co/xzDPHtd/perspective-matte-2.png">
+  <h1 class="h-center">New book</h1>
+  <br>
   <label>Author's first name
-  <input formControlName="authorFirstName"><br></label>
+  <input [ngClass]="{'input-error': form.get('authorFirstName').invalid && form.get('authorFirstName').touched}"  formControlName="authorFirstName">
+  <span class="error-message" *ngIf="form.get('authorFirstName').invalid && form.get('authorFirstName').touched">Please, enter author's first name</span></label>
+  <br>
   <label>Author's last name
-  <input formControlName="authorLastName"><br></label>
+  <input  [ngClass]="{'input-error': form.get('authorLastName').invalid && form.get('authorLastName').touched}" formControlName="authorLastName">
+    <span class="error-message" *ngIf="form.get('authorLastName').invalid && form.get('authorLastName').touched">Please, enter author's last name</span>
+  </label>
+  <br>
   <label>Title of book
-  <input formControlName="title"><br></label>
+  <input  [ngClass]="{'input-error': form.get('title').invalid && form.get('title').touched}" formControlName="title">
+    <span class="error-message" *ngIf="form.get('title').invalid && form.get('title').touched">Please, enter author's last name</span>
+  </label>
+  <br>
   <label>Isbn
-  <input formControlName="isbn"><br></label>
-  <label>Id
-  <input formControlName="id"><br></label>
+  <input  [ngClass]="{'input-error': form.get('isbn').invalid && form.get('isbn').touched}" formControlName="isbn">
+    <span class="error-message" *ngIf="form.get('isbn').invalid && form.get('isbn').touched">Please, enter the correct isbn</span>
+  </label>
+  <br>
   <label> Amount of books
-  <input type="number" formControlName="bookCount"><br></label>
-  <button class="btn-focus" (click)="add()" *ngIf="form.value.id === null">Create</button>
+  <input  [ngClass]="{'input-error': form.get('bookCount').invalid && form.get('bookCount').touched}" type="number" formControlName="bookCount">
+    <span class="error-message" *ngIf="form.get('bookCount').invalid && form.get('bookCount').touched">Please, enter author's last name</span>
+  </label>
+
+  <div class="buttons-container">
+  <button [disabled]="form.invalid" n class="btn-focus" (click)="add()" *ngIf="form.value.id === null">Add book</button>
   <button class="btn-focus" (click)="edit()" *ngIf="form.value.id !== null">Edit</button>
   <button class="btn-secondary" (click)="remove()">Reset</button>
+  </div>
 </form>
 </div>
