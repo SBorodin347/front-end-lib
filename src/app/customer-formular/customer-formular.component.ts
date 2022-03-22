@@ -51,9 +51,10 @@ export class CustomerFormularComponent{
     this.router.navigate(['/books']);
   }
 
-  goCustomers(): void{
+  goBorrowings(): void{
     this.router.navigate(['/borrowings']);
   }
+
 
   public add(): void{
     if(this.form.valid){

@@ -1,6 +1,6 @@
 <div class="nav"> <button class="btn-secondary" (click)="goHome()"><-- Home</button>
 <div><button class="btn-secondary" (click)="goCustomers()">🕵️ &nbsp;Customers</button>
-  <button class="btn-secondary" style="margin-right: 0" (click)="goBorrowings()">📄 Borrowings --></button></div>  </div>
+  <button class="btn-secondary" style="margin-right: 0" (click)="goBorrowings()">📄&nbsp; Borrowings --></button></div>  </div>
 <div class="container">
 <form [formGroup]="form">
   <img class="img-menu img-customer" width="160px" src="https://i.ibb.co/xzDPHtd/perspective-matte-2.png">
@@ -27,7 +27,7 @@
   <br>
   <label> Amount of books
   <input  [ngClass]="{'input-error': form.get('bookCount').invalid && form.get('bookCount').touched}" type="number" formControlName="bookCount">
-    <span class="error-message" *ngIf="form.get('bookCount').invalid && form.get('bookCount').touched">Please, enter author's last name</span>
+    <span class="error-message" *ngIf="form.get('bookCount').invalid && form.get('bookCount').touched">Please, enter the correct amount of books</span>
   </label>
 
   <div class="buttons-container">
