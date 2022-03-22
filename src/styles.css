@@ -155,6 +155,16 @@ label{
   background: #EDEDED;
 }
 
+.btn-low{
+  color: #000000;
+  background: #fff;
+}
+
+.btn-low:hover{
+  color: #3A72FE;
+  background: #fff;
+}
+
 input {
   width: 100%;
   padding: 12px 12px;
