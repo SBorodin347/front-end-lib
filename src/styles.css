@@ -261,13 +261,13 @@ img.img-customer{
   transition: 0.5s;
 }
 
-.btn-black{
+.btn-git{
   font-family: 'Inter', sans-serif;
   border: none;
   color: #fff;
   font-size: 16px;
   font-weight: 500;
-  padding: 8px 16px 8px 12px;
+  padding: 8px 16px 8px 10px;
   background: #27BB5D;
   border-radius: 6px;
   display: flex;
@@ -276,7 +276,7 @@ img.img-customer{
   margin-right: 12px;
   justify-content: start;
 }
-.btn-black:hover{
+.btn-git:hover{
   transition: 0.3s;
   background: #28BE5F;
 }
