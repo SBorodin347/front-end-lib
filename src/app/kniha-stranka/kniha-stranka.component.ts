@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
 import {Book, BookList} from "../models/kniha.model";
 import {BookServiceService} from "../../book-service.service";
-import {CustomerZoznam} from "../models/customer.model";
+import {Customer, CustomerZoznam} from "../models/customer.model";
 
 
 @Component({
@@ -41,17 +41,24 @@ export class KnihaStrankaComponent implements OnInit{
     });
   }
 
+
   edit(book: Book): void{
-    const index = this.books.findIndex(bookArray => bookArray.id === book.id);
-    // v () je funkcia co vracia hodnotu - bookFromList je vstupný argument -> zjednodusena forma zapisu funkcie
-    if(index !== -1){
-      this.books[index] = book;
+    if(book.id!==undefined){
+      this.bookService.updateBook(book.id, book).subscribe(data => {
+        console.log('edited: ', book);
+        this.refreshBooks();
+      });
     }
   }
 
-  editBookFromList(book: Book): void{
-    this.aktBook = book;
+  editBookFromList(bookId: number): void{
+    this.bookService.getBook(bookId).subscribe(data => {
+      console.log('prislo: ' , data);
+      this.aktBook = data;
+    });
   }
+
+
 
   removeBookFromList(bookId: number): void {
     this.bookService.deleteBook(bookId).subscribe(data => {

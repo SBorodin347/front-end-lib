@@ -31,8 +31,8 @@
   </label>
 
   <div class="buttons-container">
-  <button [disabled]="form.invalid" n class="btn-focus" (click)="add()" *ngIf="form.value.id === null">Add book</button>
-  <button class="btn-focus" (click)="edit()" *ngIf="form.value.id !== null">Edit</button>
+  <button [disabled]="form.invalid" class="btn-focus" (click)="add()" *ngIf="form.value.id === null">Add book</button>
+  <button [disabled]="form.invalid" class="btn-focus" (click)="edit()" *ngIf="form.value.id !== null">Update</button>
   <button class="btn-secondary" (click)="remove()">Reset</button>
   </div>
 </form>
