@@ -19,4 +19,8 @@ export class BorrowingService {
   getBorrowings(): Observable<BorrowingList[]> {
     return this.http.get<BorrowingList[]>(`${this.apiUrl}`);
   }
+
+  deleteBorrowing(borrowingId: number): Observable<void>{
+    return this.http.delete<void>(`${this.apiUrl}/${borrowingId}`);
+  }
 }

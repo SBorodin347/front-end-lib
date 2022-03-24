@@ -2,6 +2,8 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Customer, CustomerZoznam} from "../models/customer.model";
 import {Borrowing, BorrowingList} from "../models/borrowing.model";
 import {Book} from "../models/kniha.model";
+import {CustomerService} from "../../customer.service";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-borrowing-zoznam',
@@ -10,6 +12,10 @@ import {Book} from "../models/kniha.model";
 })
 export class BorrowingZoznamComponent{
   constructor() {}
+
+  @Input()
+  customers: CustomerZoznam[] = [];
+
   @Input()
   borrowings: BorrowingList[] = []
 
@@ -26,5 +32,7 @@ export class BorrowingZoznamComponent{
   remove(borrowingId: number): void{
     this.removeBorrowing.emit(borrowingId);
   }
+
+
 
 }

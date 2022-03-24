@@ -22,6 +22,12 @@ export class BorrowingFormularComponent{
     }
   }
 
+  @Input()
+  books: Book[] = []
+
+  @Input()
+  customers: CustomerZoznam[] = [];
+
   @Output()
   addBorrowing = new EventEmitter<Borrowing>();
 
@@ -34,8 +40,8 @@ export class BorrowingFormularComponent{
   private createForm(): void{
     this.form = new FormGroup({
       id: new FormControl(null),
-      bookId: new FormControl(null),
-      customerId: new FormControl(null),
+      bookId: new FormControl(null, Validators.required),
+      customerId: new FormControl(null, Validators.required),
     });
   }
 
@@ -47,8 +53,10 @@ export class BorrowingFormularComponent{
 
 
   public add(): void {
+    if(this.form.valid){
       this.addBorrowing.emit(this.form.value);
       this.form.reset();
+    }
   }
 
     goHome(): void{
@@ -62,5 +70,7 @@ export class BorrowingFormularComponent{
   goCustomers(): void{
     this.router.navigate(['/customers']);
   }
+
+
 }
 

@@ -10,13 +10,26 @@
   <h1 class="h-center">New borrowing</h1>
   <br>
   <form [formGroup]="form" >
+    <label>Customer</label>
+    <select [ngClass]="{'select-fill': form.get('customerId').valid }"  formControlName="customerId" >
+      <option [hidden]="true" [disabled]="true" [ngValue]="null">🕵️&nbsp; Choose a customer</option>
+      <option value="{{c.id}}" *ngFor="let c of customers">{{c.firstName}}&nbsp;{{c.lastName}}</option>
+    </select>
+    <label>Book</label>
+    <select [ngClass]="{'select-fill': form.get('bookId').valid }"  formControlName="bookId" >
+      <option disabled hidden [ngValue]="null">📚‍&nbsp; Choose a book</option>
+      <option value="{{b.id}}" *ngFor="let b of books">{{b.title}}&nbsp;</option>
+    </select>
+<br>
 
-    <input formControlName="bookId">
 
-    <input formControlName="customerId">
 
+  <div class="buttons-container">
+    <button  [disabled]="form.invalid"  class="btn-focus" (click)="add()" *ngIf="form.value.id === null">Add borrowing</button>
+  </div>
   </form>
-  <button class="btn-focus" (click)="add()" *ngIf="form.value.id === null">Add borrowing</button>
+
+
 
 </div>
 

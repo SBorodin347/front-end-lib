@@ -1,3 +1,6 @@
+import {Customer, CustomerZoznam} from "./customer.model";
+import {CustomerService} from "../../customer.service";
+
 export class Borrowing{
 
   id?: number;

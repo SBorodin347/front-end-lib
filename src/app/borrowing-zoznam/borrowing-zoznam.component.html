@@ -1,3 +1,26 @@
-<div *ngFor="let b of borrowings">
-  {{b.id}} {{b.bookId}} {{b.customerId}}
+<h1>List of borrowings</h1>
+<br>
+<div *ngIf="!borrowings || borrowings?.length === 0">
+  List of borrowings is empty
 </div>
+
+<table class="table" id="table" *ngIf="borrowings?.length > 0">
+  <thead>
+  <th>Borrowing's ID</th>
+  <th>Customer's ID</th>
+  <th>Book's ID</th>
+  <th></th>
+  </thead>
+  <tbody>
+  <tr *ngFor="let b of borrowings">
+    <td>{{b.id}}</td>
+    <td >{{b.customerId}}</td>
+    <td>{{b.bookId}}</td>
+    <td>
+      <div id="col-btn">
+      <button class="btn-remove" (click)="remove(b.id)">Delete</button>
+      </div>
+    </td>
+  </tr>
+  </tbody>
+</table>

@@ -1,10 +1,21 @@
 <div class="wrap wrap-customer">
 
-  <app-borrowing-formular [borrowing]="actBorrowing"></app-borrowing-formular>
+  <app-borrowing-formular [borrowing]="actBorrowing"
+                          (addBorrowing)="add($event)"
+                          [customers]="customers"     [books]="books">
 
-  <app-borrowing-zoznam  [borrowings]="borrowings" ></app-borrowing-zoznam>
 
-
-
+  </app-borrowing-formular>
 </div>
+
+<div class="wrap wrap-customer">
+  <app-borrowing-zoznam  [borrowings]="borrowings" [customers]="customers"
+                         (removeBorrowing)="removeBorrowingFromList($event)"
+  >
+
+  </app-borrowing-zoznam>
+</div>
+
+
+
 
