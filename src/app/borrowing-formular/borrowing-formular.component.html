@@ -9,17 +9,14 @@
   <img class="img-menu img-customer" width="140px" src="https://i.ibb.co/7ybvTKm/perspective-matte-3.png">
   <h1 class="h-center">New borrowing</h1>
   <br>
-  <label>Id of borrowing:
-    <input [(ngModel)]="borrowing.id"><br>
-  </label>
+  <form [formGroup]="form" >
 
-  <label>Select a book:
-    <input [(ngModel)]="borrowing.bookId"><br>
-  </label>
+    <input formControlName="bookId">
 
-  <label>Select a customer:
-    <input [(ngModel)]="borrowing.customerId"><br>
-  </label>
+    <input formControlName="customerId">
+
+  </form>
+  <button class="btn-focus" (click)="add()" *ngIf="form.value.id === null">Add borrowing</button>
 
 </div>
 

@@ -1,6 +1,12 @@
-import {Component} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Borrowing} from "../models/borrowing.model";
 import {Router} from "@angular/router";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {Customer, CustomerZoznam} from "../models/customer.model";
+import {CustomerService} from "../../customer.service";
+import {Book, BookList} from "../models/kniha.model";
+import {BorrowingService} from "../../borrowing.service";
+import {BookServiceService} from "../../book-service.service";
 
 @Component({
   selector: 'app-borrowing-formular',
@@ -8,10 +14,44 @@ import {Router} from "@angular/router";
   styleUrls: ['./borrowing-formular.component.css']
 })
 export class BorrowingFormularComponent{
-  borrowing: Borrowing = {id: 0, bookId: 0, customerId: 0}
-  constructor(private router: Router) { }
 
-  goHome(): void{
+  @Input()
+  set borrowing(data: Borrowing){
+    if(data) {
+      this.fillForm(data);
+    }
+  }
+
+  @Output()
+  addBorrowing = new EventEmitter<Borrowing>();
+
+  form: FormGroup;
+
+  constructor(private router: Router) {
+    this.createForm();
+  }
+
+  private createForm(): void{
+    this.form = new FormGroup({
+      id: new FormControl(null),
+      bookId: new FormControl(null),
+      customerId: new FormControl(null),
+    });
+  }
+
+  private fillForm(borrowing: Borrowing): void{
+    this.form.controls.id.setValue(borrowing.id);
+    this.form.controls.bookId.setValue(borrowing.bookId);
+    this.form.controls.customerId.setValue(borrowing.customerId);
+  }
+
+
+  public add(): void {
+      this.addBorrowing.emit(this.form.value);
+      this.form.reset();
+  }
+
+    goHome(): void{
     this.router.navigate(['']);
   }
 

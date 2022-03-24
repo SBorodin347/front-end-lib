@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Customer} from "../models/customer.model";
-import {Borrowing} from "../models/borrowing.model";
+import {Customer, CustomerZoznam} from "../models/customer.model";
+import {Borrowing, BorrowingList} from "../models/borrowing.model";
 import {Book} from "../models/kniha.model";
 
 @Component({
@@ -9,22 +9,22 @@ import {Book} from "../models/kniha.model";
   styleUrls: ['./borrowing-zoznam.component.css']
 })
 export class BorrowingZoznamComponent{
-
-  @Input()
-  borrowings: Borrowing[] = []
-
-  @Output()
-  editBorrowing: EventEmitter<Borrowing> = new EventEmitter<Borrowing>();
-
-  @Output()
-  removeBorrowing: EventEmitter<Borrowing> = new EventEmitter<Borrowing>();
-
-  edit(borrowing: Borrowing): void{
-    this.editBorrowing.emit(borrowing);
-  }
-
-  remove(borrowing: Borrowing): void{
-    this.removeBorrowing.emit(borrowing);
-  }
   constructor() {}
+  @Input()
+  borrowings: BorrowingList[] = []
+
+  @Output()
+  editBorrowing: EventEmitter<number> = new EventEmitter<number>();
+
+  @Output()
+  removeBorrowing: EventEmitter<number> = new EventEmitter<number>();
+
+  edit(borrowingId: number): void{
+    this.editBorrowing.emit(borrowingId);
+  }
+
+  remove(borrowingId: number): void{
+    this.removeBorrowing.emit(borrowingId);
+  }
+
 }

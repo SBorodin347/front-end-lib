@@ -1,6 +1,6 @@
 export class Borrowing{
 
-  id: number;
+  id?: number;
   bookId: number;
   customerId: number;
 
@@ -10,4 +10,16 @@ export class Borrowing{
     this.customerId = borrowing.customerId;
   }
 
+}
+
+export class BorrowingList{
+  id?: number;
+  bookId: number;
+  customerId: number;
+
+  constructor(borrowing: BorrowingList) {
+    this.id = borrowing.id;
+    this.bookId = borrowing.bookId;
+    this.customerId = borrowing.customerId;
+  }
 }

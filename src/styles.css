@@ -1,8 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 
-
 * {
   box-sizing: border-box;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 
 body{
@@ -60,14 +65,12 @@ label{
 #table {
   width: 100%;
   border-collapse: collapse;
-  /*border: 1px solid #E8E9ED;*/
 }
 
 #table td, #table th {
   padding: 16px;
 }
 #table tr{
-  /*border: 1px solid #E8E9ED;*/
 }
 
 #table tr:hover{
@@ -78,9 +81,9 @@ label{
 
 #table td{
   max-width: 120px;
-  white-space: nowrap; /* Запрещаем перенос строк */
-  overflow: hidden; /* Обрезаем все, что не помещается в область */
-  text-overflow: ellipsis; /* Добавляем многоточие */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 #table th {
@@ -101,6 +104,7 @@ label{
   border-radius: 6px;
   border: none;
   cursor: pointer;
+  line-height: 18px;
   margin-right: 8px;
 }
 
@@ -148,30 +152,8 @@ label{
   border: none;
   cursor: pointer;
   margin-right: 8px;
+  line-height: 18px;
 }
-
-.btn-orange{
-  font-family: 'Inter', sans-serif;
-  color: #fff;
-  font-size: 14px;
-  font-weight: 500;
-  padding: 10px 16px;
-  background: #FF691F;
-  border-radius: 6px;
-  border: none;
-  cursor: pointer;
-}
-
-.btn-orange:hover{
-  background: #FE6F28;
-  transition: 0.3s;
-}
-
-.btn-orange:active{
-  background: #F96117;
-  transition: 0.3s;
-}
-
 
 .btn-secondary:hover{
   transition: 0.3s;
@@ -195,9 +177,6 @@ input {
   border: none;
   border-radius: 8px;
   margin: 8px 0 20px 0;
-}
-
-input:active{
 }
 
 input:focus{
@@ -277,6 +256,7 @@ img.img-customer{
   cursor: pointer;
   margin-right: 8px;
   margin-bottom: 8px;
+  line-height: 20px;
 }
 
 .btn-link:hover{
@@ -331,7 +311,7 @@ img.img-customer{
 .hr-custom{
   color: #F3F4F6;
   background-color:#F3F4F6;
-  border:0px none;
+  border: 0px none;
   height: 1px;
   clear:both;
   margin: 16px 0 24px 0;

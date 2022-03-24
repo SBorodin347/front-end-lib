@@ -28,9 +28,7 @@ export class CustomerStrankaComponent implements OnInit{
       });
     }
 
-    chodSpat(): void{
-      this.router.navigate(['']);
-    }
+
 
     add(customer: Customer): void{
       this.customerService.createCustomer(customer).subscribe(data => {
@@ -61,4 +59,8 @@ export class CustomerStrankaComponent implements OnInit{
         this.refreshCustomers();
       });
     }
+
+  chodSpat(): void{
+    this.router.navigate(['']);
+  }
 }
