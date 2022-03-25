@@ -10,6 +10,10 @@ import {Router} from "@angular/router";
 })
 export class CustomerFormularComponent{
 
+  modal = false;
+
+
+
   @Input()
   set customer(data: Customer){
     if(data) {

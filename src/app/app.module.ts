@@ -15,6 +15,8 @@ import {HttpClientModule} from "@angular/common/http";
 import {BorrowingZoznamComponent} from "./borrowing-zoznam/borrowing-zoznam.component";
 import {BorrowingStrankaComponent} from "./borrowing-stranka/borrowing-stranka.component";
 import {BorrowingFormularComponent} from "./borrowing-formular/borrowing-formular.component";
+import { WindowComponent } from './window/window.component';
+import {RefDirective} from "./ref.directive";
 
 
 @NgModule({
@@ -29,7 +31,9 @@ import {BorrowingFormularComponent} from "./borrowing-formular/borrowing-formula
     CustomerFormularComponent,
     CustomerStrankaComponent,
     CustomerZoznamComponent,
-    MenuComponent
+    MenuComponent,
+    WindowComponent,
+    RefDirective
   ],
   imports: [
     BrowserModule,

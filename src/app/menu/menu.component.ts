@@ -1,7 +1,9 @@
-import {Component, Input} from '@angular/core';
+import {Component, ComponentFactoryResolver, Input, ViewChild} from '@angular/core';
 import {Router} from '@angular/router';
 import {Customer, CustomerZoznam} from "../models/customer.model";
 import {CustomerService} from "../../customer.service";
+import {WindowComponent} from "../window/window.component";
+import {RefDirective} from "../ref.directive";
 
 
 enum MENU { OSOBY, KNIHY, VYPOZICKY }
@@ -13,9 +15,24 @@ enum MENU { OSOBY, KNIHY, VYPOZICKY }
 })
 export class MenuComponent {
 
+
+
   menu = MENU;
   customers: CustomerZoznam[] = [];
-  constructor(private router: Router, private customerService: CustomerService) { }
+
+  @ViewChild(RefDirective) refDir: RefDirective
+
+  constructor(private router: Router, private customerService: CustomerService, private resolver: ComponentFactoryResolver) { }
+
+  showModal(){
+   const modalFactory = this.resolver.resolveComponentFactory(WindowComponent);
+   this.refDir.containerRef.clear();
+
+   const component = this.refDir.containerRef.createComponent(modalFactory);
+   component.instance.close.subscribe(() => {
+           this.refDir.containerRef.clear();
+    });
+  }
 
   ngOnInit(): void {
 

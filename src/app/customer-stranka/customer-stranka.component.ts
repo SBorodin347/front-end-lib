@@ -12,7 +12,8 @@ import {CustomerService} from "../../customer.service";
 })
 export class CustomerStrankaComponent implements OnInit{
 
-    customers: CustomerZoznam[] = [];
+
+  customers: CustomerZoznam[] = [];
     actCustomer?: Customer;
 
     constructor(private router: Router, private customerService: CustomerService) { }
