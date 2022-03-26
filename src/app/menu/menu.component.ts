@@ -20,19 +20,10 @@ export class MenuComponent {
   menu = MENU;
   customers: CustomerZoznam[] = [];
 
-  @ViewChild(RefDirective) refDir: RefDirective
 
-  constructor(private router: Router, private customerService: CustomerService, private resolver: ComponentFactoryResolver) { }
+  constructor(private router: Router, private customerService: CustomerService) { }
 
-  showModal(){
-   const modalFactory = this.resolver.resolveComponentFactory(WindowComponent);
-   this.refDir.containerRef.clear();
 
-   const component = this.refDir.containerRef.createComponent(modalFactory);
-   component.instance.close.subscribe(() => {
-           this.refDir.containerRef.clear();
-    });
-  }
 
   ngOnInit(): void {
 

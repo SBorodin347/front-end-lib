@@ -1,11 +1,11 @@
 <div class="backdrop">
 
-
   <div class="modal">
-    <app-borrowing-formular r [borrowing]="actBorrowing"
+    <div style="display: flex; justify-content: flex-end">
+      <button class="btn-close" (click)="close.emit()" ></button></div>
+    <app-borrowing-formular [borrowing]="actBorrowing"
                             (addBorrowing)="add($event)"
                             [customers]="customers"     [books]="books"></app-borrowing-formular>
-    <button (click)="close.emit()" class="btn-secondary">Close</button>
   </div>
 
 

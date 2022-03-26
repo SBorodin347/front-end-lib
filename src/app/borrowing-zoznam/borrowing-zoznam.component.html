@@ -1,7 +1,19 @@
-<h1>List of borrowings</h1>
-<br>
-<div *ngIf="!borrowings || borrowings?.length === 0">
-  List of borrowings is empty
+<ng-template appRef> </ng-template>
+<div class="nav">
+ <div style="display: flex; justify-content: flex-start; align-items: center">
+  <button class="btn-circle" (click)="goBack()"><i class="img-arrow"></i></button> <div><h1>Borrowings</h1></div>
+ </div>
+  <button style="margin-right: 0" class="btn-focus" (click)="showModal()">New borrowing</button>
+</div>
+<hr class="hr-custom">
+<div class="empty-list" *ngIf="!borrowings || borrowings?.length === 0">
+
+  <div> <img class="" width="110px" src="https://i.ibb.co/ggP6Jhc/Box-perspective-matte-s.png"></div>
+  <br>
+  <div class="empty-title"> <span>Borrowings list is empty</span>
+  </div>
+  <a class="link-custom" (click)="showModal()">Create new</a>
+
 </div>
 
 <table class="table" id="table" *ngIf="borrowings?.length > 0">
@@ -9,6 +21,8 @@
   <th>Borrowing's ID</th>
   <th>Customer's ID</th>
   <th>Book's ID</th>
+  <th>Date of borrowing</th>
+  <th>Date of return</th>
   <th></th>
   </thead>
   <tbody>
@@ -16,6 +30,8 @@
     <td>{{b.id}}</td>
     <td >{{b.customerId}}</td>
     <td>{{b.bookId}}</td>
+    <td>{{b.dateOfBorrowing}}</td>
+    <td style="color: #3A72FE">{{b.dateOfReturn}}</td>
     <td>
       <div id="col-btn">
       <button class="btn-remove" (click)="remove(b.id)">Delete</button>

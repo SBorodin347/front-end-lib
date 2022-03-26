@@ -34,14 +34,17 @@ export class BorrowingFormularComponent{
   form: FormGroup;
 
   constructor(private router: Router) {
-    this.createForm();
-  }
+    this.createForm();}
+
 
   private createForm(): void{
     this.form = new FormGroup({
       id: new FormControl(null),
       bookId: new FormControl(null, Validators.required),
       customerId: new FormControl(null, Validators.required),
+      dateOfBorrowing: new FormControl(null),
+      borrowingTerm: new FormControl(null, Validators.required),
+      dateOfReturn: new FormControl(null,)
     });
   }
 
@@ -49,6 +52,9 @@ export class BorrowingFormularComponent{
     this.form.controls.id.setValue(borrowing.id);
     this.form.controls.bookId.setValue(borrowing.bookId);
     this.form.controls.customerId.setValue(borrowing.customerId);
+    this.form.controls.dateOfBorrowing.setValue(borrowing.dateOfBorrowing);
+    this.form.controls.borrowingTerm.setValue(borrowing.borrowingTerm);
+    this.form.controls.dateOfReturn.setValue(borrowing.dateOfReturn);
   }
 
 
@@ -56,6 +62,7 @@ export class BorrowingFormularComponent{
     if(this.form.valid){
       this.addBorrowing.emit(this.form.value);
       this.form.reset();
+      location.reload();
     }
   }
 
