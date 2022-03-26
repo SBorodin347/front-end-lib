@@ -6,9 +6,9 @@ export class Borrowing{
   id?: number;
   bookId: number;
   customerId: number;
-  dateOfBorrowing: String;
+  dateOfBorrowing: Date;
   borrowingTerm: number;
-  dateOfReturn: String;
+  dateOfReturn: Date;
 
   constructor(borrowing: Borrowing) {
     this.id = borrowing.id;
@@ -25,9 +25,9 @@ export class BorrowingList{
   id?: number;
   bookId: number;
   customerId: number;
-  dateOfBorrowing: String;
+  dateOfBorrowing: Date;
   borrowingTerm: number;
-  dateOfReturn: String;
+  dateOfReturn: Date;
 
   constructor(borrowing: BorrowingList) {
     this.id = borrowing.id;

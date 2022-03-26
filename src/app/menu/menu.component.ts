@@ -2,7 +2,7 @@ import {Component, ComponentFactoryResolver, Input, ViewChild} from '@angular/co
 import {Router} from '@angular/router';
 import {Customer, CustomerZoznam} from "../models/customer.model";
 import {CustomerService} from "../../customer.service";
-import {WindowComponent} from "../window/window.component";
+import {BorrowingFormPopupComponent} from "../borrowing-form-popup/borrowing-form-popup.component";
 import {RefDirective} from "../ref.directive";
 
 

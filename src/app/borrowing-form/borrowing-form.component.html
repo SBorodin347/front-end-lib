@@ -1,0 +1,62 @@
+<div *ngIf="submitted===false">
+  <img class="img-menu img-customer" width="140px" src="https://i.ibb.co/7ybvTKm/perspective-matte-3.png">
+  <h1 class="h-center">New borrowing</h1>
+  <br>
+
+  <form [formGroup]="form" >
+    <label>Customer</label>
+    <select [ngClass]="{'select-error': form.get('customerId').invalid && form.get('customerId').touched}" [ngClass]="{'select-fill': form.get('customerId').valid }"  formControlName="customerId" >
+      <option [hidden]="true" [disabled]="true" [ngValue]="null">🕵️&nbsp; Choose a customer...</option>
+      <option value="{{c.id}}" *ngFor="let c of customers">{{c.firstName}}&nbsp;{{c.lastName}}</option>
+    </select>
+    <span class="error-message" *ngIf="form.get('customerId').invalid && form.get('customerId').touched">Please, choose a customer for borrowing</span>
+    <span class="success-message" *ngIf="form.get('customerId').valid">Cool, this customer is verified</span>
+<br>
+    <label>Book</label>
+    <select  [ngClass]="{'select-error': form.get('bookId').invalid && form.get('bookId').touched}" [ngClass]="{'select-fill': form.get('bookId').valid }"  formControlName="bookId" >
+      <option disabled hidden [ngValue]="null">📚‍&nbsp; Choose a book...</option>
+      <option value="{{b.id}}" *ngFor="let b of books">{{b.title}}&nbsp;</option>
+    </select>
+    <span class="error-message" *ngIf="form.get('bookId').invalid && form.get('bookId').touched">Please, choose a book for borrowing</span>
+    <span class="success-message" *ngIf="form.get('bookId').valid">Cool, this book is in stock</span>
+    <hr style="margin-top: 0" class="hr-custom">
+  <div class="radio-buttons-title"> <div style="margin-right: 4px">Borrowing term</div> <div class="tooltip"><i class="icon-info"></i>
+    <span class="tooltiptext">From today</span>
+  </div></div>
+
+    <div class="wrapper">
+      <input checked formControlName="borrowingTerm" value="7" type="radio"  id="option-1" >
+      <input formControlName="borrowingTerm" value="30"  type="radio" id="option-2">
+      <input formControlName="borrowingTerm" value="91" type="radio"  id="option-3">
+      <label for="option-1" class="option option-1">
+        <div class="dot"></div>
+        <span>Week</span>
+      </label>
+      <label for="option-2" class="option option-2">
+        <div class="dot"></div>
+        <span>Month</span>
+      </label>
+      <label for="option-3" class="option option-3">
+        <div class="dot"></div>
+        <span>Three months</span>
+      </label>
+    </div>
+    <br>
+    <button type="submit" [disabled]="form.invalid"  class="md-mrg btn-focus" (click)="add()" *ngIf="form.value.id === null">Add borrowing</button>
+  </form>
+  </div>
+
+<div class="modal-container" *ngIf="submitted===true">
+  <div class="success-checkmark">
+  <div class="check-icon">
+    <span class="icon-line line-tip"></span>
+    <span class="icon-line line-long"></span>
+    <div class="icon-circle"></div>
+    <div class="icon-fix"></div>
+  </div>
+</div>
+
+  <div style="margin-bottom: 16px; margin-top: 16px"> <span color="#24262F" style="font-size: 18px">New borrowing has been added&nbsp; 🎉</span>
+</div>
+</div>
+

@@ -1,0 +1,15 @@
+<div class="wrap wrap-customer">
+
+  <app-book-form [book]="aktBook"
+                      (addBook)="add($event)"
+                      (editBook)="edit($event)">
+  </app-book-form>
+</div>
+
+<div class="wrap wrap-customer">
+<app-book-list [books]="books"
+                  (editBook)="editBookFromList($event)"
+                  (removeBook)="removeBookFromList($event)">
+</app-book-list>
+
+</div>

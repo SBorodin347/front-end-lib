@@ -1,0 +1,17 @@
+
+<div class="wrap wrap-customer">
+
+<app-customer-form [customer]="actCustomer"
+                    (addCustomer)="add($event)"
+                    (editCustomer)="edit($event)">
+</app-customer-form>
+</div>
+<div class="wrap wrap-customer">
+<app-customer-list [customers]="customers"
+                  (editCustomer)="editCustomerFromList($event)"
+                  (removeCustomer)="removeCustomerFromList($event)">
+</app-customer-list>
+
+
+</div>
+
