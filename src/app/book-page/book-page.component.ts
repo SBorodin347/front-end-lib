@@ -66,5 +66,4 @@ export class BookPageComponent implements OnInit{
       });
     }
 
-
 }

@@ -25,6 +25,8 @@ export class BorrowingList{
   id?: number;
   bookId: number;
   customerId: number;
+  // customerName: string;
+  // bookTitle: string;
   dateOfBorrowing: Date;
   borrowingTerm: number;
   dateOfReturn: Date;

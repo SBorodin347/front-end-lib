@@ -22,9 +22,13 @@
     <span class="error-message" *ngIf="form.get('lastName').invalid && form.get('lastName').touched">Please, enter the client's last name</span>
   </label>
   <br>
-  <label>Contact
-    <input class="input" [ngClass]="{'input-error': form.get('contact').invalid && form.get('contact').touched}" formControlName="contact">
-    <span class="error-message" *ngIf="form.get('contact').invalid && form.get('contact').touched">Please, enter the client's contact</span>
+  <label>Phone number
+    <input class="input" [ngClass]="{'input-error': form.get('phoneNumber').invalid && form.get('phoneNumber').touched}" formControlName="phoneNumber">
+    <span class="error-message" *ngIf="form.get('phoneNumber').invalid && form.get('phoneNumber').touched">Please, enter the correct email</span>
+  </label><br>
+  <label>Email
+    <input class="input" [ngClass]="{'input-error': form.get('email').invalid && form.get('email').touched}" formControlName="email">
+    <span class="error-message" *ngIf="form.get('email').invalid && form.get('email').touched">Please, enter the correct email</span>
   </label><br>
 
   <div class="buttons-container">

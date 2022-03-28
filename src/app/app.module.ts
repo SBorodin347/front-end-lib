@@ -17,6 +17,7 @@ import {BorrowingPageComponent} from "./borrowing-page/borrowing-page.component"
 import {BorrowingFormComponent} from "./borrowing-form/borrowing-form.component";
 import { BorrowingFormPopupComponent } from './borrowing-form-popup/borrowing-form-popup.component';
 import {RefDirective} from "./ref.directive";
+import {BooksFilterPipe} from "./shared/books-filter.pipe";
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import {RefDirective} from "./ref.directive";
     CustomerListComponent,
     MenuComponent,
     BorrowingFormPopupComponent,
+    BooksFilterPipe,
     RefDirective
   ],
   imports: [

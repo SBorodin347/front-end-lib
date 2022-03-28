@@ -1,9 +1,7 @@
 import {Component, ComponentFactoryResolver, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {Customer, CustomerZoznam} from "../models/customer.model";
 import {Borrowing, BorrowingList} from "../models/borrowing.model";
-import {Book} from "../models/kniha.model";
 import {CustomerService} from "../../customer.service";
-import {Observable} from "rxjs";
 import {BorrowingFormPopupComponent} from "../borrowing-form-popup/borrowing-form-popup.component";
 import {RefDirective} from "../ref.directive";
 import {Router} from "@angular/router";
@@ -28,6 +26,7 @@ export class BorrowingListComponent {
       this.refDir.containerRef.clear();
     });
   }
+
   @Input()
   customers: CustomerZoznam[] = [];
 
@@ -51,6 +50,10 @@ export class BorrowingListComponent {
 
   goBack(): void{
     this.router.navigate(['']);
+  }
+
+  goBooks(): void{
+    this.router.navigate(['/books']);
   }
 
 }

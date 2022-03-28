@@ -57,7 +57,7 @@ export class CustomerPageComponent implements OnInit{
     removeCustomerFromList(customerId: number): void{
       this.customerService.deleteCustomer(customerId).subscribe(data => {
         this.refreshCustomers();
-      });
+      }, error => {alert("!!!")});
     }
 
   chodSpat(): void{

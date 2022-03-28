@@ -27,7 +27,7 @@ export class BookFormComponent {
   @Output()
   removeBook = new EventEmitter<Book>();
 
-  form!: FormGroup;
+  form: FormGroup;
 
   constructor(private router: Router) {
     this.createForm();
@@ -36,22 +36,25 @@ export class BookFormComponent {
   private createForm(): void {
     this.form = new FormGroup({
       id: new FormControl(null),
-      authorFirstName: new FormControl(null, Validators.required),
-      authorLastName: new FormControl(null, Validators.required),
+      authorName: new FormControl(null, Validators.required),
       title: new FormControl(null, Validators.required),
       isbn: new FormControl(null, Validators.required),
-      bookCount: new FormControl(null, [Validators.required, Validators.min(1)])
+      bookCount: new FormControl(null, [Validators.required, Validators.min(0)]),
+      numberOfPages: new FormControl(null, [Validators.required, Validators.min(1)]),
+      genres: new FormControl(null, Validators.required)
     });
   }
 
   private fillForm(book: Book): void {
     this.form.controls["id"].setValue(book.id);
-    this.form.controls["authorFirstName"].setValue(book.authorFirstName);
-    this.form.controls["authorLastName"].setValue(book.authorLastName);
+    this.form.controls["authorName"].setValue(book.authorName);
     this.form.controls["title"].setValue(book.title);
     this.form.controls["isbn"].setValue(book.isbn);
     this.form.controls["bookCount"].setValue(book.bookCount);
+    this.form.controls["numberOfPages"].setValue(book.numberOfPages);
+    this.form.controls["genres"].setValue(book.genres);
   }
+
 
 
   public add(): void{

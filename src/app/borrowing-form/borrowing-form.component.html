@@ -13,15 +13,15 @@
     <span class="success-message" *ngIf="form.get('customerId').valid">Cool, this customer is verified</span>
 <br>
     <label>Book</label>
-    <select  [ngClass]="{'select-error': form.get('bookId').invalid && form.get('bookId').touched}" [ngClass]="{'select-fill': form.get('bookId').valid }"  formControlName="bookId" >
+    <select *ngIf="bookProblem==false"  [ngClass]="{'select-error': form.get('bookId').invalid && form.get('bookId').touched}" [ngClass]="{'select-fill': form.get('bookId').valid }"  formControlName="bookId" >
       <option disabled hidden [ngValue]="null">📚‍&nbsp; Choose a book...</option>
-      <option value="{{b.id}}" *ngFor="let b of books">{{b.title}}&nbsp;</option>
+      <option value="{{b.id}}" (change)="checkBook(b)" *ngFor="let b of books">  {{b.title}} </option>
     </select>
     <span class="error-message" *ngIf="form.get('bookId').invalid && form.get('bookId').touched">Please, choose a book for borrowing</span>
-    <span class="success-message" *ngIf="form.get('bookId').valid">Cool, this book is in stock</span>
+ <span class="success-message" *ngIf="form.get('bookId').valid">Cool, this book is in stock</span>
     <hr style="margin-top: 0" class="hr-custom">
   <div class="radio-buttons-title"> <div style="margin-right: 4px">Borrowing term</div> <div class="tooltip"><i class="icon-info"></i>
-    <span class="tooltiptext">From today</span>
+    <span class="tooltiptext">From {{currentDate}}</span>
   </div></div>
 
     <div class="wrapper">
@@ -56,7 +56,9 @@
   </div>
 </div>
 
-  <div style="margin-bottom: 16px; margin-top: 16px"> <span color="#24262F" style="font-size: 18px">New borrowing has been added&nbsp; 🎉</span>
+  <div style="margin-bottom: 16px; margin-top: 16px"><span color="#24262F" style="font-size: 18px">New borrowing has been added&nbsp; 🎉</span>
+
+
 </div>
 </div>
 

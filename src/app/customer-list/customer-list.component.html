@@ -8,6 +8,7 @@
   <thead>
   <th>ID</th>
   <th>Full name</th>
+  <th>Phone number</th>
   <th>Contact</th>
   <th></th>
   </thead>
@@ -15,7 +16,8 @@
   <tr *ngFor="let c of customers">
     <td>{{c.id}}</td>
     <td >{{c.firstName}}&nbsp;{{c.lastName}}</td>
-    <td>{{c.contact}}</td>
+    <td>{{c.phoneNumber}}</td>
+    <td>{{c.email}}</td>
     <td>
       <div id="col-btn">
         <button class="btn-secondary" (click)="edit(c.id)">Edit</button>

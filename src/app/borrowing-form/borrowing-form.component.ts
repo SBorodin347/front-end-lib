@@ -7,6 +7,8 @@ import {CustomerService} from "../../customer.service";
 import {Book, BookList} from "../models/kniha.model";
 import {BorrowingService} from "../../borrowing.service";
 import {BookServiceService} from "../../book-service.service";
+import * as moment from 'moment';
+import 'moment/locale/pt-br';
 
 @Component({
   selector: 'app-borrowing-form',
@@ -22,6 +24,9 @@ export class BorrowingFormComponent{
     }
   }
 
+  currentDate = moment().lang("en").format('DD.MM');
+
+
   @Input()
   books: Book[] = []
 
@@ -35,8 +40,9 @@ export class BorrowingFormComponent{
   submitted = false;
 
   constructor(private router: Router) {
-    this.createForm();}
+    this.createForm();
 
+  }
   private createForm(): void{
     this.form = new FormGroup({
       id: new FormControl(null),
@@ -56,10 +62,7 @@ export class BorrowingFormComponent{
     this.form.controls.dateOfBorrowing.setValue(borrowing.dateOfBorrowing);
     this.form.controls.borrowingTerm.setValue(borrowing.borrowingTerm);
     this.form.controls.dateOfReturn.setValue(borrowing.dateOfReturn);
-
   }
-
-
 
   public add(): void {
     if (this.form.valid) {
@@ -68,10 +71,16 @@ export class BorrowingFormComponent{
       this.submitted = true;
       setTimeout(function () {
       location.reload();
-      }, 1400);
+       }, 1400);
     }
   }
 
+  bookProblem = false;
+  public checkBook(book: Book): void{
+       if(book.bookCount==0){
+         this.bookProblem = true;
+       }
+  }
 
   goBooks(): void{
     this.router.navigate(['/books']);

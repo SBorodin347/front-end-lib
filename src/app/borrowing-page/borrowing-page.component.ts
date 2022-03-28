@@ -56,9 +56,11 @@ export class BorrowingPageComponent {
   }
 
   removeBorrowingFromList(borrowingId: number): void{
-    this.borrowingService.deleteBorrowing(borrowingId).subscribe(data => {
-      this.refreshBorrowings();
-    });
+    if(confirm('Naozaj?')){
+      this.borrowingService.deleteBorrowing(borrowingId).subscribe(data => {
+        this.refreshBorrowings();
+      });
+    }
   }
 
   goBack(): void{

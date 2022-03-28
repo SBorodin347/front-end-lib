@@ -12,8 +12,6 @@ export class CustomerFormComponent {
 
   modal = false;
 
-
-
   @Input()
   set customer(data: Customer){
     if(data) {
@@ -38,7 +36,8 @@ export class CustomerFormComponent {
       id: new FormControl(null),
       firstName: new FormControl(null, Validators.required),
       lastName: new FormControl(null, Validators.required),
-      contact: new FormControl(null, Validators.required)
+      email: new FormControl(null, [Validators.required, Validators.email]),
+      phoneNumber: new FormControl(null, Validators.required)
     });
   }
 
@@ -46,7 +45,8 @@ export class CustomerFormComponent {
     this.form.controls.id.setValue(customer.id);
     this.form.controls.firstName.setValue(customer.firstName);
     this.form.controls.lastName.setValue(customer.lastName);
-    this.form.controls.contact.setValue(customer.contact);
+    this.form.controls.email.setValue(customer.email);
+    this.form.controls.phoneNumber.setValue(customer.phoneNumber);
   }
   chodSpat(): void{
     this.router.navigate(['']);

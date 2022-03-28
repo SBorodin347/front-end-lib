@@ -23,4 +23,6 @@ export class BorrowingService {
   deleteBorrowing(borrowingId: number): Observable<void>{
     return this.http.delete<void>(`${this.apiUrl}/${borrowingId}`);
   }
+
+
 }

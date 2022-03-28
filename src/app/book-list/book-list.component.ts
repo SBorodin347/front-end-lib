@@ -17,6 +17,15 @@ export class BookListComponent {
   @Output()
   removeBook: EventEmitter<number> = new EventEmitter<number>();
 
+  public searchString = ''
+
+  quantityBagde(quantity) {
+    return {
+      'badge-success': quantity >= 3,
+      'badge-danger': quantity < 3
+    }
+  }
+
   edit(bookId: number): void{
     this.editBook.emit(bookId);
   }

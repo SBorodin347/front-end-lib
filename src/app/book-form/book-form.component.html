@@ -6,14 +6,9 @@
   <img class="img-menu img-customer" width="140px" src="https://i.ibb.co/7W8vk5R/perspective-glossy.png">
   <h1 class="h-center">New book</h1>
   <br>
-  <label>Author's first name
-  <input [ngClass]="{'input-error': form.get('authorFirstName').invalid && form.get('authorFirstName').touched}"  formControlName="authorFirstName">
-  <span class="error-message" *ngIf="form.get('authorFirstName').invalid && form.get('authorFirstName').touched">Please, enter author's first name</span></label>
-  <br>
-  <label>Author's last name
-  <input  [ngClass]="{'input-error': form.get('authorLastName').invalid && form.get('authorLastName').touched}" formControlName="authorLastName">
-    <span class="error-message" *ngIf="form.get('authorLastName').invalid && form.get('authorLastName').touched">Please, enter author's last name</span>
-  </label>
+  <label>Author's name
+  <input [ngClass]="{'input-error': form.get('authorName').invalid && form.get('authorName').touched}"  formControlName="authorName">
+  <span class="error-message" *ngIf="form.get('authorName').invalid && form.get('authorName').touched">Please, enter author's name</span></label>
   <br>
   <label>Title of book
   <input  [ngClass]="{'input-error': form.get('title').invalid && form.get('title').touched}" formControlName="title">
@@ -25,9 +20,21 @@
     <span class="error-message" *ngIf="form.get('isbn').invalid && form.get('isbn').touched">Please, enter the correct isbn</span>
   </label>
   <br>
-  <label> Amount of books
-  <input  [ngClass]="{'input-error': form.get('bookCount').invalid && form.get('bookCount').touched}" type="number" formControlName="bookCount">
-    <span class="error-message" *ngIf="form.get('bookCount').invalid && form.get('bookCount').touched">Please, enter the correct amount of books</span>
+  <div style="display: flex;justify-content: space-between; align-items: flex-start">
+    <div >
+  <label> Available books
+  <input [ngClass]="{'input-small-error': form.get('bookCount').invalid && form.get('bookCount').touched}" type="number" formControlName="bookCount">
+<!--    <span class="error-message" *ngIf="form.get('bookCount').invalid && form.get('bookCount').touched">Incorrect number</span>-->
+  </label></div>
+    <div  class="input-small-container">
+  <label> Number of pages
+    <input  [ngClass]="{'input-small-error': form.get('numberOfPages').invalid && form.get('numberOfPages').touched}" type="number" formControlName="numberOfPages">
+<!--    <span class="error-message" *ngIf="form.get('numberOfPages').invalid && form.get('numberOfPages').touched">Incorrect number</span>-->
+  </label></div>
+  </div>
+  <label> Genres
+    <input  [ngClass]="{'input-error': form.get('genres').invalid && form.get('genres').touched}" formControlName="genres">
+    <span class="error-message" *ngIf="form.get('genres').invalid && form.get('genres').touched">Please, enter the correct amount of books</span>
   </label>
 
   <div class="buttons-container">

@@ -1,9 +1,9 @@
 <ng-template appRef> </ng-template>
 <div class="nav">
- <div style="display: flex; justify-content: flex-start; align-items: center">
+ <div class="nav-center">
   <button class="btn-circle" (click)="goBack()"><i class="img-arrow"></i></button> <div><h1>Borrowings</h1></div>
  </div>
-  <button style="margin-right: 0" class="btn-focus" (click)="showModal()">New borrowing</button>
+  <div class="nav-center"> <button (click)="goBooks()" class="btn-navigation"><i class="img-books"></i></button>   <button style="margin-right: 0" class="btn-focus" (click)="showModal()">New borrowing</button> </div>
 </div>
 <hr class="hr-custom">
 <div class="empty-list" *ngIf="!borrowings || borrowings?.length === 0">
