@@ -1,11 +1,32 @@
 export class Customer{
-
-  name: String;
-  contact: String;
+  id?: number;
+  firstName: string;
+  lastName: string;
+  email: string;
+  phoneNumber: string;
 
   constructor(customer: Customer) {
-    this.name = customer.name;
-    this.contact = customer.contact;
+    this.id = customer.id;
+    this.firstName = customer.firstName;
+    this.lastName = customer.lastName;
+    this.email = customer.email;
+    this.phoneNumber = customer.phoneNumber;
   }
 
+}
+
+export class CustomerZoznam{
+  id?: number;
+  firstName: string;
+  lastName: string;
+  email: string;
+  phoneNumber: string;
+
+  constructor(customer: CustomerZoznam) {
+    this.id = customer.id;
+    this.firstName = customer.firstName;
+    this.lastName = customer.lastName;
+    this.email = customer.email;
+    this.phoneNumber = customer.phoneNumber;
+  }
 }

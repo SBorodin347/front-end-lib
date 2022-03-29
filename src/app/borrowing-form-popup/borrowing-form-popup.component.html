@@ -1,0 +1,15 @@
+<div class="backdrop">
+
+  <div class="modal">
+    <div style="display: flex; justify-content: flex-end">
+      <button class="btn-close" (click)="close.emit()"></button></div>
+    <app-borrowing-form  [borrowing]="actBorrowing"
+                          (addBorrowing)="add($event)"
+                          [customers]="customers"     [books]="books"  [borrowings]="borrowings"
+    ></app-borrowing-form>
+  </div>
+
+
+</div>
+
+
