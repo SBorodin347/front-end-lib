@@ -1,0 +1,40 @@
+<h1>📚&nbsp;List of books</h1>
+<br>
+<div *ngIf="!books || books?.length === 0">
+  List of books is empty
+</div>
+
+<div class="filter">
+  <i class="icon-search"></i>
+  <input class="input-search" type="text" placeholder="Search a book by title or author's name" [(ngModel)]="searchString">
+</div>
+<hr style="margin-top: 8px; margin-bottom: 16px" class="hr-custom">
+<table id="table" *ngIf="books.length > 0">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Author's full name</th>
+    <th>Title of book</th>
+    <th>ISBN</th>
+    <th>Available books</th>
+    <th></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <tr *ngFor="let book of books | booksFilterByTitle:searchString ">
+    <td>{{ book.id }}</td>
+    <td>{{ book.authorName }}</td>
+    <td>{{ book.title }}</td>
+    <td>{{ book.isbn }}</td>
+    <td> <span class="badge" [ngClass]="quantityBagde(book.bookCount)"> {{ book.bookCount }} </span>  </td>
+
+    <td> <div id="col-btn">
+        <button class="btn-secondary" (click)="edit(book.id)">Edit</button>
+        <button  class="btn-remove" (click)="remove(book.id)">Delete</button>
+    </div>
+    </td>
+
+  </tr>
+  </tbody>
+</table>

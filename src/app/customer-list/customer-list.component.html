@@ -1,0 +1,42 @@
+<h1>List of customers</h1>
+<br>
+<div *ngIf="!customers || customers?.length === 0">
+  List of customers is empty
+</div>
+
+<table class="table" id="table" *ngIf="customers?.length > 0">
+  <thead>
+  <th>ID</th>
+  <th>Full name</th>
+  <th>Phone number</th>
+  <th>Contact</th>
+  <th></th>
+  </thead>
+  <tbody>
+  <tr *ngFor="let c of customers">
+    <td>{{c.id}}</td>
+    <td >{{c.firstName}}&nbsp;{{c.lastName}}</td>
+    <td>{{c.phoneNumber}}</td>
+    <td>{{c.email}}</td>
+    <td>
+      <div id="col-btn">
+        <button class="btn-secondary"  (click)="edit(c.id)">Edit</button>
+        <swal
+          #deleteSwal
+          title="Delete {{c.firstName}} {{c.lastName}}?"
+          text="This cannot be undone"
+          icon="question"
+          [showCancelButton]="true"
+          [focusCancel]="true"
+          [swalOptions]="{ confirmButtonText: 'Confirm' }"
+          (confirm)="remove(c.id)">
+        </swal>
+        <button class="btn-remove" [swal]="deleteSwal">Delete</button>
+      </div>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+
+

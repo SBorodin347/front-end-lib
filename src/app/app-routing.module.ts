@@ -1,23 +1,23 @@
 import {RouterModule, Routes} from "@angular/router";
 import {NgModule} from "@angular/core";
-import {CustomerStrankaComponent} from "./customer-stranka/customer-stranka.component";
-import {KnihaStrankaComponent} from "./kniha-stranka/kniha-stranka.component";
-import {BorrowingStrankaComponent} from "./borrowing-stranka/borrowing-stranka.component";
+import {CustomerPageComponent} from "./customer-page/customer-page.component";
+import {BookPageComponent} from "./book-page/book-page.component";
+import {BorrowingPageComponent} from "./borrowing-page/borrowing-page.component";
 import {MenuComponent} from './menu/menu.component';
 
 
 const routes: Routes = [
   {
     path: 'customers',
-    component: CustomerStrankaComponent
+    component: CustomerPageComponent
   },
   {
     path: 'books',
-    component: KnihaStrankaComponent
+    component: BookPageComponent
   },
   {
     path: 'borrowings',
-    component: BorrowingStrankaComponent
+    component: BorrowingPageComponent
   },
   {
     path: '',

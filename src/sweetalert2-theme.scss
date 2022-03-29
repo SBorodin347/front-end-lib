@@ -1,0 +1,88 @@
+// This is an example of variables we can change:
+
+
+// POPUP
+$swal2-width: 24em !default;
+$swal2-border-radius: 12px;
+
+// CONFIRM BUTTON
+$swal2-confirm-button-background-color: #3A72FE !default;
+$swal2-confirm-button-color: #fff !default;
+$swal2-confirm-button-focus-box-shadow: 0 0 0 3px rgba($swal2-confirm-button-background-color, .5) !default;
+$swal2-confirm-button-font-size: 14px !default;
+
+// CANCEL BUTTON
+$swal2-cancel-button-background-color: #FEF0EF !default;
+$swal2-cancel-button-color: #F80100 !default;
+// CANCEL BUTTON
+$swal2-cancel-button-order: null !default;
+$swal2-cancel-button-border: 0 !default;
+$swal2-cancel-button-focus-box-shadow: none !default;
+$swal2-cancel-button-border-radius: 8px;
+
+// COMMON VARIABLES FOR ALL ACTION BUTTONS
+$swal2-button-margin: .3125em !default;
+$swal2-button-padding: 10px 16px !default;
+$swal2-button-transition: box-shadow .1s !default;
+$swal2-button-box-shadow: 0 0 0 3px transparent !default;
+$swal2-button-font-weight: 500 !default;
+$swal2-button-focus-outline: none !default;
+$swal2-confirm-button-border-radius: 8px;
+
+// TYPOGRAPHY
+$swal2-font: inherit !default;
+$swal2-font-size: 16px !default;
+
+// TITLE
+$swal2-title-position: relative !default;
+$swal2-title-max-width: 100% !default;
+$swal2-title-margin: 0 !default;
+$swal2-title-padding: .8em 1em 0 !default;
+$swal2-title-color: #24262F !default;
+$swal2-title-font-size: 18px !default;
+$swal2-title-font-weight: 600 !default;
+$swal2-title-text-align: center !default;
+
+// HTML CONTAINER
+$swal2-html-container-justify-content: center !default;
+$swal2-html-container-margin: 1em 1.2em .3em !default;
+$swal2-html-container-padding: 0 !default;
+$swal2-html-container-overflow: auto !default;
+$swal2-html-container-color: #666C7B !default;
+$swal2-html-container-font-size: 16px !default;
+$swal2-html-container-font-weight: normal !default;
+$swal2-html-container-line-height: normal !default;
+$swal2-html-container-text-align: center !default;
+$swal2-html-container-word-wrap: break-word !default;
+$swal2-html-container-word-break: break-word !default;
+
+// ICONS
+$swal2-icon-size: 5em !default;
+$swal2-icon-animations: true !default;
+$swal2-icon-margin: 3em auto 2em !default;
+$swal2-icon-font-family: inherit !default;
+$swal2-icon-font-size: 3.75em !default;
+$swal2-icon-border-color: #000 !default;
+$swal2-icon-zoom: null !default;
+$swal2-success: #a5dc86 !default;
+$swal2-success-border: rgba($swal2-success, .3) !default;
+$swal2-error: #f27474 !default;
+$swal2-warning: #f8bb86 !default;
+$swal2-info: #3fc3ee !default;
+$swal2-question: #87adbd !default;
+
+// ACTIONS
+$swal2-actions-flex-wrap: wrap !default;
+$swal2-actions-align-items: center !default;
+$swal2-actions-justify-content: center !default;
+$swal2-actions-width: 80% !default;
+$swal2-actions-margin: 1.25em auto 0 !default;
+$swal2-actions-padding: 8px !default;
+
+@import '../node_modules/sweetalert2/src/sweetalert2';
+
+
+.swal2-confirm{
+    font-family: 'Inter', sans-serif;
+     line-height: 20px;
+}
