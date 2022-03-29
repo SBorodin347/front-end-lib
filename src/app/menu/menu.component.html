@@ -1,11 +1,13 @@
 
 
+
+
 <div class="wrap">
 
  <div class="list-menu">
-   <button class="btn-secondary" (click)="otvorMenu(menu.OSOBY)">🕵️‍&nbsp; Customers</button>
-   <button class="btn-secondary" (click)="otvorMenu(menu.KNIHY)">📚‍&nbsp; Books</button>
-   <button class="btn-secondary" (click)="otvorMenu(menu.VYPOZICKY)">📄‍&nbsp; Borrowings</button>
+   <button class="btn-secondary" (click)="openMenu(menu.CUSTOMERS)">🕵️‍&nbsp; Customers</button>
+   <button class="btn-secondary" (click)="openMenu(menu.BOOKS)">📚‍&nbsp; Books</button>
+   <button class="btn-secondary" (click)="openMenu(menu.BORROWINGS)">📄‍&nbsp; Borrowings</button>
  </div>
   <img class="img-menu" width="160px" src="https://i.ibb.co/J55GKMc/Folder-perspective-matte-s.png">
   <div class="description">
@@ -31,8 +33,7 @@
     <a target="_blank" href="https://github.com/SBorodin347/front-end-lib"><button class="btn-git"><div style="margin-right: 6px" class="icons8-github"></div>GITHUB</button></a>
     <-- &nbsp;Check this for more details</div>
  </div>
-
   </div>
-<!--  <app-customer-list [customers]="customers"></app-customer-list>-->
 </div>
+
 

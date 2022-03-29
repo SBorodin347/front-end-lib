@@ -9,9 +9,9 @@ export class BooksFilterPipe implements PipeTransform{
     if (!search.trim()){
       return books;
     }
-      return books.filter(book=>{
-        return book.title.toLocaleLowerCase().indexOf(search.toLocaleLowerCase()) !== -1;
-      })
+    return books.filter(book=>{
+      return book.authorName.toLocaleLowerCase().indexOf(search.toLocaleLowerCase()) !== -1 || book.title.toLocaleLowerCase().indexOf(search.toLocaleLowerCase()) !== -1;
+    })
   }
 }
 

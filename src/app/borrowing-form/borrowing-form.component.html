@@ -7,15 +7,15 @@
     <label>Customer</label>
     <select [ngClass]="{'select-error': form.get('customerId').invalid && form.get('customerId').touched}" [ngClass]="{'select-fill': form.get('customerId').valid }"  formControlName="customerId" >
       <option [hidden]="true" [disabled]="true" [ngValue]="null">🕵️&nbsp; Choose a customer...</option>
-      <option value="{{c.id}}" *ngFor="let c of customers">{{c.firstName}}&nbsp;{{c.lastName}}</option>
+      <option title="customer" value="{{c.id}}" *ngFor="let c of customers">{{c.firstName}}&nbsp;{{c.lastName}}</option>
     </select>
     <span class="error-message" *ngIf="form.get('customerId').invalid && form.get('customerId').touched">Please, choose a customer for borrowing</span>
     <span class="success-message" *ngIf="form.get('customerId').valid">Cool, this customer is verified</span>
 <br>
     <label>Book</label>
-    <select *ngIf="bookProblem==false"  [ngClass]="{'select-error': form.get('bookId').invalid && form.get('bookId').touched}" [ngClass]="{'select-fill': form.get('bookId').valid }"  formControlName="bookId" >
+    <select   [ngClass]="{'select-error': form.get('bookId').invalid && form.get('bookId').touched}" [ngClass]="{'select-fill': form.get('bookId').valid }"  formControlName="bookId" >
       <option disabled hidden [ngValue]="null">📚‍&nbsp; Choose a book...</option>
-      <option value="{{b.id}}" (change)="checkBook(b)" *ngFor="let b of books">  {{b.title}} </option>
+      <option  value="{{b.id}}"  *ngFor="let b of books">  {{b.title}} </option>
     </select>
     <span class="error-message" *ngIf="form.get('bookId').invalid && form.get('bookId').touched">Please, choose a book for borrowing</span>
  <span class="success-message" *ngIf="form.get('bookId').valid">Cool, this book is in stock</span>

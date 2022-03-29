@@ -9,13 +9,13 @@ import {Router} from "@angular/router";
 @Component({
   selector: 'app-borrowing-list',
   templateUrl: './borrowing-list.component.html',
-  styleUrls: ['./borrowing-list.component.css']
+  styleUrls: ['./borrowing-list.component.scss']
 })
 export class BorrowingListComponent {
 
   @ViewChild(RefDirective) refDir: RefDirective
 
-  constructor(private resolver: ComponentFactoryResolver, private router: Router, private customerService: CustomerService) {}
+  constructor(private resolver: ComponentFactoryResolver, private router: Router) {}
 
   showModal(){
     const modalFactory = this.resolver.resolveComponentFactory(BorrowingFormPopupComponent);

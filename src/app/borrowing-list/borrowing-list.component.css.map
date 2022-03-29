@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,eAAe;EACb,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,IAAI;EACZ,aAAa,EAAE,GAAG;EAClB,YAAY,EAAE,IAAI;EAClB,MAAM,EAAE,OAAO;EACf,UAAU,EAAE,eAAe;EAC3B,MAAM,EAAE,IAAI;;AAGd,qBAAqB;EACnB,UAAU,EAAE,IAAI;EAChB,UAAU,EAAE,OAAO;;AAGrB,WAAW;EACT,OAAO,EAAE,IAAI;EAAE,eAAe,EAAE,UAAU;EAAE,WAAW,EAAE,MAAM",
+"sources": ["borrowing-list.component.scss"],
+"names": [],
+"file": "borrowing-list.component.css"
+}

@@ -9,11 +9,12 @@ import {BorrowingService} from "../../borrowing.service";
 import {BookServiceService} from "../../book-service.service";
 import * as moment from 'moment';
 import 'moment/locale/pt-br';
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-borrowing-form',
   templateUrl: './borrowing-form.component.html',
-  styleUrls: ['./borrowing-form.component.css']
+  styleUrls: ['./borrowing-form.component.scss']
 })
 export class BorrowingFormComponent{
 
@@ -23,9 +24,11 @@ export class BorrowingFormComponent{
       this.fillForm(data);
     }
   }
-
+  private subscription: Subscription = new Subscription();
   currentDate = moment().lang("en").format('DD.MM');
 
+  @Input()
+  borrowings: BorrowingList[] = [];
 
   @Input()
   books: Book[] = []
@@ -69,17 +72,10 @@ export class BorrowingFormComponent{
       this.addBorrowing.emit(this.form.value);
       this.form.reset();
       this.submitted = true;
-      setTimeout(function () {
+     setTimeout(function () {
       location.reload();
        }, 1400);
     }
-  }
-
-  bookProblem = false;
-  public checkBook(book: Book): void{
-       if(book.bookCount==0){
-         this.bookProblem = true;
-       }
   }
 
   goBooks(): void{
@@ -88,6 +84,10 @@ export class BorrowingFormComponent{
 
   goCustomers(): void{
     this.router.navigate(['/customers']);
+  }
+
+  public bookSearch(book: Book): void{
+    console.log(this.books.indexOf(book));
   }
 
 

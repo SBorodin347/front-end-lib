@@ -7,20 +7,17 @@
 </div>
 <hr class="hr-custom">
 <div class="empty-list" *ngIf="!borrowings || borrowings?.length === 0">
-
   <div> <img class="" width="110px" src="https://i.ibb.co/ggP6Jhc/Box-perspective-matte-s.png"></div>
   <br>
   <div class="empty-title"> <span>Borrowings list is empty</span>
   </div>
   <a class="link-custom" (click)="showModal()">Create new</a>
-
 </div>
-
 <table class="table" id="table" *ngIf="borrowings?.length > 0">
   <thead>
   <th>Borrowing's ID</th>
-  <th>Customer's ID</th>
-  <th>Book's ID</th>
+  <th>Customer</th>
+  <th>Book</th>
   <th>Date of borrowing</th>
   <th>Date of return</th>
   <th></th>
@@ -28,8 +25,8 @@
   <tbody>
   <tr *ngFor="let b of borrowings" >
     <td>{{b.id}}</td>
-    <td>{{b.customerId}}</td>
-    <td>{{b.bookId}}</td>
+    <td>{{b.customerName}}</td>
+    <td>{{b.bookTitle}}</td>
     <td>{{b.dateOfBorrowing}}</td>
     <td style="color: #3A72FE">{{b.dateOfReturn}}</td>
     <td>

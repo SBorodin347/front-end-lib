@@ -6,24 +6,19 @@ import {BorrowingFormPopupComponent} from "../borrowing-form-popup/borrowing-for
 import {RefDirective} from "../ref.directive";
 
 
-enum MENU { OSOBY, KNIHY, VYPOZICKY }
+enum MENU { CUSTOMERS, BOOKS, BORROWINGS }
 
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.css']
+  styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent {
-
-
 
   menu = MENU;
   customers: CustomerZoznam[] = [];
 
-
   constructor(private router: Router, private customerService: CustomerService) { }
-
-
 
   ngOnInit(): void {
 
@@ -37,14 +32,14 @@ export class MenuComponent {
     });
   }
 
-  otvorMenu(m: MENU) {
-    if (m === MENU.OSOBY) {
+  openMenu(m: MENU) {
+    if (m === MENU.CUSTOMERS) {
       this.router.navigate(['/customers']);
     }
-    if (m === MENU.KNIHY) {
+    if (m === MENU.BOOKS) {
       this.router.navigate(['/books']);
     }
-    if (m === MENU.VYPOZICKY) {
+    if (m === MENU.BORROWINGS) {
       this.router.navigate(['/borrowings']);
     }
   }

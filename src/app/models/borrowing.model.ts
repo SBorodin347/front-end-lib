@@ -25,8 +25,8 @@ export class BorrowingList{
   id?: number;
   bookId: number;
   customerId: number;
-  // customerName: string;
-  // bookTitle: string;
+  customerName: string;
+  bookTitle: string;
   dateOfBorrowing: Date;
   borrowingTerm: number;
   dateOfReturn: Date;
@@ -35,6 +35,8 @@ export class BorrowingList{
     this.id = borrowing.id;
     this.bookId = borrowing.bookId;
     this.customerId = borrowing.customerId;
+    this.customerName = borrowing.customerName;
+    this.bookTitle = borrowing.bookTitle;
     this.dateOfBorrowing = borrowing.dateOfBorrowing;
     this.borrowingTerm = borrowing.borrowingTerm;
     this.dateOfReturn = borrowing.dateOfReturn;

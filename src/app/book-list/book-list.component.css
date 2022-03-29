@@ -1,17 +1,15 @@
-.badge{
+.badge {
   padding: 3px 8px;
   font-weight: 500;
   font-size: 14px;
-  border-radius: 5px;
-}
+  border-radius: 5px; }
 
-.badge-success{
+.badge-success {
   color: #27BB5D;
-  background: #F1F8F0;
-}
+  background: #F1F8F0; }
 
-.badge-danger{
+.badge-danger {
   color: #F80100;
-  background: #FEF0EF;
-}
+  background: #FEF0EF; }
 
+/*# sourceMappingURL=book-list.component.css.map */

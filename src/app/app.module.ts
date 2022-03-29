@@ -18,9 +18,11 @@ import {BorrowingFormComponent} from "./borrowing-form/borrowing-form.component"
 import { BorrowingFormPopupComponent } from './borrowing-form-popup/borrowing-form-popup.component';
 import {RefDirective} from "./ref.directive";
 import {BooksFilterPipe} from "./shared/books-filter.pipe";
+import {SweetAlert2Module} from "@sweetalert2/ngx-sweetalert2";
 
 
 @NgModule({
+
   declarations: [
     AppComponent,
     BorrowingListComponent,
@@ -35,7 +37,7 @@ import {BooksFilterPipe} from "./shared/books-filter.pipe";
     MenuComponent,
     BorrowingFormPopupComponent,
     BooksFilterPipe,
-    RefDirective
+    RefDirective,
   ],
   imports: [
     BrowserModule,
@@ -43,7 +45,10 @@ import {BooksFilterPipe} from "./shared/books-filter.pipe";
     ReactiveFormsModule,
     RouterModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    SweetAlert2Module.forRoot({
+      provideSwal: () => import('sweetalert2/dist/sweetalert2.js')
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]
