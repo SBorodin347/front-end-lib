@@ -1,14 +1,16 @@
 <h1>📚&nbsp;List of books</h1>
 <br>
-<div *ngIf="!books || books?.length === 0">
-  List of books is empty
-</div>
+
 
 <div class="filter">
   <i class="icon-search"></i>
   <input class="input-search" type="text" placeholder="Search a book by title or author's name" [(ngModel)]="searchString">
 </div>
 <hr style="margin-top: 8px; margin-bottom: 16px" class="hr-custom">
+
+<div *ngIf="!books || books?.length === 0">
+  List of books is empty
+</div>
 <table id="table" *ngIf="books.length > 0">
   <thead>
   <tr>
