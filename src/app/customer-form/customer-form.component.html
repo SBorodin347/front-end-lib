@@ -1,40 +1,42 @@
- <div class="nav"> <button class="btn-secondary btn-low" (click)="chodSpat()"><-- Home</button>
+ <div class="flex justify-content-between flex-wrap card-container">
+      <button pButton class="p-button-text text-black-alpha-90 p-button-sm p-button-rounded hover:surface-100 text-base font-bold" icon="pi pi-arrow-left" iconPos="left" label="Home" (click)="chodSpat()"></button>
 
-
- <div><button class="btn-secondary" (click)="goBooks()">📚&nbsp; Books</button>
-   <button class="btn-focus" (click)="goBorrowings()">Borrow book</button></div>
+   <div class="flex justify-content-end flex-wrap card-container">
+      <button pButton class="p-button-text p-button-raised p-button-sm shadow-3 bg-gray-200 text-black-alpha-90 text-base font-semibold hover:bg-gray-300 p-2 m-2 mr-3" (click)="goBooks()">📚&nbsp;Books</button>
+      <button pButton class="p-button-text p-button-raised p-button-sm p-button-rounded shadow-3 bg-blue-500 text-0 text-base font-semibold mt-1" (click)="goBorrowings()">Borrow Book</button>
+   </div>
 
  </div>
 
-<div class="container">
+<div class="flex flex-column card-container container">
   <img class="img-menu img-customer" width="140px" src="https://i.ibb.co/XxPRBfh/customer.png">
   <h1 class="h-center">New Customer</h1>
   <br>
-<form [formGroup]="form" >
+<form [formGroup]="form">
   <label>First name
-    <input class="input"
+    <input pInputText class="input"
            [ngClass]="{'input-error': form.get('firstName').invalid && form.get('firstName').touched}" formControlName="firstName" >
-   <span class="error-message" *ngIf="form.get('firstName').invalid && form.get('firstName').touched">Please, enter the client's first name</span>
+   <p-message severity="error" text="Please enter client's first name!" *ngIf="form.get('firstName').invalid && form.get('firstName').touched"></p-message>
   </label>
   <br>
   <label>Last name
-    <input class="input"  [ngClass]="{'input-error': form.get('lastName').invalid && form.get('lastName').touched}" formControlName="lastName">
-    <span class="error-message" *ngIf="form.get('lastName').invalid && form.get('lastName').touched">Please, enter the client's last name</span>
+    <input pInputText class="input"  [ngClass]="{'input-error': form.get('lastName').invalid && form.get('lastName').touched}" formControlName="lastName">
+    <p-message severity="error" text="Please enter client's last name!" *ngIf="form.get('lastName').invalid && form.get('lastName').touched"></p-message>
   </label>
   <br>
   <label>Phone number
-    <input class="input" [ngClass]="{'input-error': form.get('phoneNumber').invalid && form.get('phoneNumber').touched}" formControlName="phoneNumber">
-    <span class="error-message" *ngIf="form.get('phoneNumber').invalid && form.get('phoneNumber').touched">Please, enter the correct email</span>
+    <input pInputNumber type="number" class="input" [ngClass]="{'input-error': form.get('phoneNumber').invalid && form.get('phoneNumber').touched}" formControlName="phoneNumber">
+    <p-message severity="error" text="Please enter the correct phone number!" *ngIf="form.get('phoneNumber').invalid && form.get('phoneNumber').touched"></p-message>
   </label><br>
   <label>Email
-    <input class="input" [ngClass]="{'input-error': form.get('email').invalid && form.get('email').touched}" formControlName="email">
-    <span class="error-message" *ngIf="form.get('email').invalid && form.get('email').touched">Please, enter the correct email</span>
+    <input pInputText class="input" [ngClass]="{'input-error': form.get('email').invalid && form.get('email').touched}" formControlName="email">
+    <p-message severity="error" text="Please enter the correct email!" *ngIf="form.get('email').invalid && form.get('email').touched"></p-message>
   </label><br>
 
-  <div class="buttons-container">
-    <button [disabled]="form.invalid"  class="btn-focus" (click)="add()" *ngIf="form.value.id === null">Add customer</button>
-    <button [disabled]="form.invalid" class="btn-focus" (click)="edit()" *ngIf="form.value.id !== null">Update</button>
-    <button class="btn-secondary" (click)="remove()">Reset</button>
+  <div class="flex justify-content-center flex-wrap card-container">
+    <button pButton [disabled]="form.invalid" class="p-button-text p-button-raised p-button-sm shadow-3 bg-blue-500 text-0 text-base m-1 font-semibold" (click)="add()" *ngIf="form.value.id === null">Add Customer</button>
+    <button pButton [disabled]="form.invalid" class="p-button-text p-button-raised p-button-sm shadow-3 bg-blue-500 text-0 text-base m-1 font-semibold" (click)="edit()" *ngIf="form.value.id !== null">Update</button>
+    <button pButton class="p-button-text p-button-raised p-button-sm shadow-3 bg-gray-200 text-black-alpha-90 text-base m-1 font-semibold hover:bg-gray-300" (click)="remove()">Reset</button>
   </div>
 
 </form>

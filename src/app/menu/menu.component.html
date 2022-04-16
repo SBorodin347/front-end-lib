@@ -1,39 +1,46 @@
+<div class="p-card shadow-1">
 
-
-
-
-<div class="wrap">
-
- <div class="list-menu">
-   <button class="btn-secondary" (click)="openMenu(menu.CUSTOMERS)">🕵️‍&nbsp; Customers</button>
-   <button class="btn-secondary" (click)="openMenu(menu.BOOKS)">📚‍&nbsp; Books</button>
-   <button class="btn-secondary" (click)="openMenu(menu.BORROWINGS)">📄‍&nbsp; Borrowings</button>
+ <div class="flex justify-content-center flex-wrap card-container">
+     <button pButton pRipple class="p-button-raised p-button-sm p-button-rounded border-none m-1 text-base font-semibold shadow-3 bg-black-alpha-10 text-black-alpha-90 hover:bg-black-alpha-20" (click)="openMenu(menu.CUSTOMERS)">🕵️‍&nbsp; Customers</button>
+     <button pButton pRipple class="p-button-raised p-button-sm p-button-rounded border-none m-1 text-base font-semibold shadow-3 bg-black-alpha-10 text-black-alpha-90 hover:bg-black-alpha-20" (click)="openMenu(menu.BOOKS)">📚‍&nbsp; Books</button>
+     <button pButton pRipple class="p-button-raised p-button-sm p-button-rounded border-none m-1 text-base font-semibold shadow-3 bg-black-alpha-10 text-black-alpha-90 hover:bg-black-alpha-20" (click)="openMenu(menu.BORROWINGS)">📄‍&nbsp; Borrowings</button>
  </div>
+
   <img class="img-menu" width="160px" src="https://i.ibb.co/J55GKMc/Folder-perspective-matte-s.png">
-  <div class="description">
-    <h1 style="margin-bottom: 10px">Welcome to <span style="color:#3A72FE">UMBOOK</span></h1>
 
-    <div class="description-text"> Here you can create customers, books and borrowing (ooops, still not).
-      Don't forget to thank the authors of this wonderful app :)</div>
-  <hr class="hr-custom">
- <div class="desc-block">
- <div style="margin-bottom: 12px; font-size: 13px" class="description-text">DEVELOPERS (or just geniuses):</div>
-   <a target="_blank" href="https://github.com/domiie"> <button class="btn-link">🥳 Dominika Kamenská</button></a>
- <a target="_blank" href="https://github.com/SBorodin347"><button class="btn-link">🤠 Vyacheslav Borodin</button> </a>
-  <a target="_blank" href="https://github.com/Gelmoxx"> <button style="margin-bottom: 0" class="btn-link">🤩 Tomáš Peregrin</button></a>
- </div>
-
-    <div class="desc-block">
-      <div style="margin-bottom: 12px; font-size: 13px" class="description-text">USING TOOLS:</div>
- <div class="icn-block"><div style="margin-right: 6px" class="icons8-angularjs"></div></div>
+  <div class="flex flex-column card-container description">
+    <div class="flex align-items-center justify-content-center">
+      <h1>Welcome to <span style="color:#3A72FE">UMBOOK</span></h1>
     </div>
- <div style="margin-bottom: 0; font-size: 13px" class="desc-block">
-   <div style="margin-bottom: 10px" class="description-text">REPOSITORY:</div>
-  <div class="icn-block">
-    <a target="_blank" href="https://github.com/SBorodin347/front-end-lib"><button class="btn-git"><div style="margin-right: 6px" class="icons8-github"></div>GITHUB</button></a>
-    <-- &nbsp;Check this for more details</div>
- </div>
+    <div class="flex align-items-center justify-content-center">
+      Here you can create customers, books and borrowings. <br>
+      Don't forget to thank the authors of this wonderful app :)
+    </div>
+    <p-divider type="dashed" align="center"></p-divider>
+    <div class="flex-auto">
+      <div class="description-text text-xs">DEVELOPERS (or just geniuses):</div>
+
+          <a target="_blank" href="https://github.com/domiie"> <button pButton class="p-button-secondary p-button-outlined p-button-rounded p-button-sm m-1 bg-gray-100 p-2 border-none hover:bg-gray-200">🥳 Dominika Kamenská</button></a>
+          <a target="_blank" href="https://github.com/SBorodin347"><button pButton class="p-button-secondary p-button-outlined p-button-rounded p-button-sm m-1 bg-gray-100 p-2 border-none hover:bg-gray-200">🤠 Vyacheslav Borodin</button> </a>
+          <a target="_blank" href="https://github.com/Gelmoxx"> <button pButton class="p-button-secondary p-button-outlined p-button-rounded p-button-sm m-1 bg-gray-100 p-2 border-none hover:bg-gray-200">🤩 Tomáš Peregrin</button></a>
+
+    </div>
+
+    <div class="flex-auto">
+      <div class="description-text text-xs mb-1">USING TOOLS:</div>
+      <a target="_blank" href="https://primefaces.org/primeng/"><button pButton class="p-button-text p-button-rounded mb-1 hover:bg-gray-50" icon="pi pi-prime"></button></a>
+      <a target="_blank" href="https://angular.io"><button pButton class="p-button-text p-button-rounded mb-1 hover:bg-gray-50" icon="pi pi-external-link"></button></a>
+    </div>
+    <div class="flex-auto description-text">
+      REPOSITORY:
+      <div class="icn-block">
+        <a target="_blank" href="https://github.com/SBorodin347/front-end-lib"><button pButton class="p-button-success p-button-raised p-button-sm mt-2 mr-1 border-none" iconPos="left" icon="pi pi-github" label="GITHUB"></button></a>
+        <-- &nbsp;Check this for more details
+      </div>
+    </div>
   </div>
 </div>
+
+
 
 

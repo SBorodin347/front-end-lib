@@ -19,7 +19,15 @@ import { BorrowingFormPopupComponent } from './borrowing-form-popup/borrowing-fo
 import {RefDirective} from "./ref.directive";
 import {BooksFilterPipe} from "./shared/books-filter.pipe";
 import {SweetAlert2Module} from "@sweetalert2/ngx-sweetalert2";
-
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {ButtonModule} from "primeng/button";
+import {RippleModule} from "primeng/ripple";
+import {PanelModule} from "primeng/panel";
+import {RadioButtonModule} from "primeng/radiobutton";
+import {DividerModule} from "primeng/divider";
+import {CardModule} from "primeng/card";
+import {MessageModule} from "primeng/message";
+import {InputNumberModule} from 'primeng/inputnumber';
 
 @NgModule({
 
@@ -37,7 +45,7 @@ import {SweetAlert2Module} from "@sweetalert2/ngx-sweetalert2";
     MenuComponent,
     BorrowingFormPopupComponent,
     BooksFilterPipe,
-    RefDirective,
+    RefDirective
   ],
   imports: [
     BrowserModule,
@@ -49,6 +57,15 @@ import {SweetAlert2Module} from "@sweetalert2/ngx-sweetalert2";
     SweetAlert2Module.forRoot({
       provideSwal: () => import('sweetalert2/dist/sweetalert2.js')
     }),
+    BrowserAnimationsModule,
+    ButtonModule,
+    RippleModule,
+    PanelModule,
+    RadioButtonModule,
+    DividerModule,
+    CardModule,
+    MessageModule,
+    InputNumberModule
   ],
   providers: [],
   bootstrap: [AppComponent]

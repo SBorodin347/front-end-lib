@@ -30,8 +30,8 @@
     <td> <span class="badge" [ngClass]="quantityBagde(book.bookCount)"> {{ book.bookCount }} </span>  </td>
 
     <td> <div id="col-btn">
-        <button class="btn-secondary" (click)="edit(book.id)">Edit</button>
-        <button  class="btn-remove" (click)="remove(book.id)">Delete</button>
+        <button pButton class="p-button-text p-button-raised p-button-sm shadow-none bg-gray-200 text-black-alpha-90 text-base m-1 font-semibold p-2 hover:bg-gray-300" (click)="edit(book.id)">Edit</button>
+        <button pButton class="p-button-text p-button-danger p-button-raised p-button-sm shadow-none text-base m-1 font-semibold p-2" (click)="remove(book.id)">Delete</button>
     </div>
     </td>
 

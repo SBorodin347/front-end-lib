@@ -9,16 +9,16 @@
       <option [hidden]="true" [disabled]="true" [ngValue]="null">🕵️&nbsp; Choose a customer...</option>
       <option title="customer" value="{{c.id}}" *ngFor="let c of customers">{{c.firstName}}&nbsp;{{c.lastName}}</option>
     </select>
-    <span class="error-message" *ngIf="form.get('customerId').invalid && form.get('customerId').touched">Please, choose a customer for borrowing</span>
-    <span class="success-message" *ngIf="form.get('customerId').valid">Cool, this customer is verified</span>
+    <p-message severity="error" text="Please choose a customer!" *ngIf="form.get('customerId').invalid && form.get('customerId').touched"></p-message>
+    <p-message severity="success" text="Cool, this customer is verified." *ngIf="form.get('customerId').valid"></p-message>
 <br>
     <label>Book</label>
     <select   [ngClass]="{'select-error': form.get('bookId').invalid && form.get('bookId').touched}" [ngClass]="{'select-fill': form.get('bookId').valid }"  formControlName="bookId" >
       <option disabled hidden [ngValue]="null">📚‍&nbsp; Choose a book...</option>
       <option  value="{{b.id}}"  *ngFor="let b of books">  {{b.title}} </option>
     </select>
-    <span class="error-message" *ngIf="form.get('bookId').invalid && form.get('bookId').touched">Please, choose a book for borrowing</span>
- <span class="success-message" *ngIf="form.get('bookId').valid">Cool, this book is in stock</span>
+    <p-message severity="error" text="Please choose a book to borrow" *ngIf="form.get('bookId').invalid && form.get('bookId').touched"></p-message>
+ <p-message severity="success" text="Cool, this book is in stock!" *ngIf="form.get('bookId').valid"></p-message>
     <hr style="margin-top: 0" class="hr-custom">
   <div class="radio-buttons-title"> <div style="margin-right: 4px">Borrowing term</div> <div class="tooltip"><i class="icon-info"></i>
     <span class="tooltiptext">From {{currentDate}}</span>
@@ -42,7 +42,7 @@
       </label>
     </div>
     <br>
-    <button type="submit" [disabled]="form.invalid"  class="md-mrg btn-focus" (click)="add()" *ngIf="form.value.id === null">Add borrowing</button>
+    <button pButton class="p-button-text p-button-raised p-button-sm shadow-3 bg-blue-500 text-0 text-base m-1 font-semibold" type="submit" [disabled]="form.invalid" (click)="add()" *ngIf="form.value.id === null">Add borrowing</button>
   </form>
   </div>
 

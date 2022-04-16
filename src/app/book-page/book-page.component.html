@@ -1,4 +1,4 @@
-<div class="wrap wrap-customer">
+<div class="p-card wrap-customer shadow-1">
 
   <app-book-form [book]="aktBook"
                       (addBook)="add($event)"
@@ -6,7 +6,7 @@
   </app-book-form>
 </div>
 
-<div class="wrap wrap-customer">
+<div class="p-card wrap-customer shadow-1">
 <app-book-list [books]="books"
                   (editBook)="editBookFromList($event)"
                   (removeBook)="removeBookFromList($event)">

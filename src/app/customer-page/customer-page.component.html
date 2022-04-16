@@ -1,12 +1,12 @@
 
-<div class="wrap wrap-customer">
+<div class="p-card wrap-customer shadow-1">
 
 <app-customer-form [customer]="actCustomer"
                     (addCustomer)="add($event)"
                     (editCustomer)="edit($event)">
 </app-customer-form>
 </div>
-<div class="wrap wrap-customer">
+<div class="p-card wrap-customer shadow-1">
 <app-customer-list [customers]="customers"
                   (editCustomer)="editCustomerFromList($event)"
                   (removeCustomer)="removeCustomerFromList($event)">

@@ -1,10 +1,15 @@
 <ng-template appRef> </ng-template>
-<div class="nav">
- <div class="nav-center">
-  <button class="btn-circle" (click)="goBack()"><i class="img-arrow"></i></button> <div><h1>Borrowings</h1></div>
- </div>
-  <div class="nav-center"> <button (click)="goBooks()" class="btn-navigation"><i class="img-books"></i></button>   <button style="margin-right: 0" class="btn-focus" (click)="showModal()">New borrowing</button> </div>
+<div class="flex justify-content-between flex-wrap card-container">
+  <button pButton class="p-button-rounded p-button-text text-black-alpha-90 p-button-sm hover:bg-gray-200 surface-50 text-base font-bold" icon="pi pi-arrow=left" (click)="goBack()"><i class="img-arrow"></i></button>
+
+  <div class="flex justify-content-end flex-wrap card-container">
+    <button pButton class="p-button-text p-button-raised p-button-sm shadow-3 bg-gray-200 text-black-alpha-90 text-base font-semibold hover:bg-gray-300 p-2 m-2 mr-1" (click)="goBooks()"><i class="img-books"></i>&nbsp;Books</button>
+    <button pButton class="p-button-text p-button-raised p-button-sm shadow-3 bg-gray-200 text-black-alpha-90 text-base font-semibold hover:bg-gray-300 p-2 m-2" (click)="goBooks()">🕵️&nbsp;Customers</button>
+    <button pButton class="p-button-text p-button-raised p-button-sm p-button-rounded shadow-3 bg-blue-500 text-0 text-base font-semibold mt-1" (click)="showModal()">New Borrowing</button>
+  </div>
 </div>
+
+<div><h1>Borrowings</h1></div>
 <hr class="hr-custom">
 <div class="empty-list" *ngIf="!borrowings || borrowings?.length === 0">
   <div> <img class="" width="110px" src="https://i.ibb.co/ggP6Jhc/Box-perspective-matte-s.png"></div>
@@ -31,7 +36,7 @@
     <td style="color: #3A72FE">{{b.dateOfReturn}}</td>
     <td>
       <div id="col-btn">
-      <button class="btn-remove" (click)="remove(b.id)">Delete</button>
+      <button pButton class="p-button-text p-button-danger p-button-raised p-button-sm shadow-none text-base m-1 font-semibold p-2" (click)="remove(b.id)">Delete</button>
       </div>
     </td>
   </tr>
