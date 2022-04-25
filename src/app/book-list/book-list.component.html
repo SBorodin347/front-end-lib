@@ -4,7 +4,7 @@
 
 <div class="filter">
   <i class="icon-search"></i>
-  <input class="input-search" type="text" placeholder="Search a book by title or author's name" [(ngModel)]="searchString">
+  <input class="input-search" type="text" placeholder="Search a book by its title or author's last name" [(ngModel)]="searchString">
 </div>
 <hr style="margin-top: 8px; margin-bottom: 16px" class="hr-custom">
 
@@ -26,7 +26,7 @@
   <tbody>
   <tr *ngFor="let book of books | booksFilterByTitle:searchString ">
     <td>{{ book.id }}</td>
-    <td>{{ book.authorName }}</td>
+    <td>{{ book.authorFirstName}} {{ book.authorLastName}}</td>
     <td>{{ book.title }}</td>
     <td>{{ book.isbn }}</td>
     <td> <span class="badge" [ngClass]="quantityBagde(book.bookCount)"> {{ book.bookCount }} </span>  </td>

@@ -1,6 +1,7 @@
 export class Book {
   id?: number;
-  authorName: string;
+  authorFirstName: string;
+  authorLastName: string;
   title: string;
   isbn: string;
   bookCount: number;
@@ -9,7 +10,8 @@ export class Book {
 
   constructor(book: Book) {
     this.id = book.id;
-    this.authorName = book.authorName;
+    this.authorFirstName = book.authorFirstName;
+    this.authorLastName = book.authorLastName;
     this.title = book.title;
     this.isbn = book.isbn;
     this.bookCount = book.bookCount;
@@ -20,7 +22,8 @@ export class Book {
 
 export class BookList {
   id?: number;
-  authorName: string;
+  authorFirstName: string;
+  authorLastName: string;
   title: string;
   isbn: string;
   bookCount: number;
@@ -29,7 +32,8 @@ export class BookList {
 
   constructor(book: BookList) {
     this.id = book.id;
-    this.authorName = book.authorName;
+    this.authorFirstName = book.authorFirstName;
+    this.authorLastName = book.authorLastName;
     this.title = book.title;
     this.isbn = book.isbn;
     this.bookCount = book.bookCount;

@@ -6,10 +6,18 @@
   <img class="img-menu img-customer" width="140px" src="https://i.ibb.co/7W8vk5R/perspective-glossy.png">
   <h1 class="h-center">New Book</h1>
   <br>
-  <label>Author's name
-  <input [ngClass]="{'input-error': form.get('authorName').invalid && form.get('authorName').touched}"  formControlName="authorName">
-  <span class="error-message" *ngIf="form.get('authorName').invalid && form.get('authorName').touched">Please, enter author's name</span></label>
-  <br>
+  <div style="display: flex;justify-content: space-between; align-items: flex-start">
+    <div >
+  <label>Author's first name
+  <input [ngClass]="{'input-error': form.get('authorFirstName').invalid && form.get('authorFirstName').touched}"  formControlName="authorFirstName">
+<!--  <span class="error-message" *ngIf="form.get('authorFirstName').invalid && form.get('authorFirstName').touched">Please, enter author's first name</span>-->
+  </label></div>
+    <div  class="input-small-container">
+  <label>Author's last name
+    <input [ngClass]="{'input-error': form.get('authorLastName').invalid && form.get('authorLastName').touched}"  formControlName="authorLastName">
+<!--    <span class="error-message" *ngIf="form.get('authorLastName').invalid && form.get('authorLastName').touched">Please, enter author's last name</span>-->
+  </label></div>
+  </div>
   <label>Title of book
   <input  [ngClass]="{'input-error': form.get('title').invalid && form.get('title').touched}" formControlName="title">
     <span class="error-message" *ngIf="form.get('title').invalid && form.get('title').touched">Please, enter author's last name</span>
@@ -34,7 +42,7 @@
   </div>
   <label> Genres
     <input  [ngClass]="{'input-error': form.get('genres').invalid && form.get('genres').touched}" formControlName="genres">
-    <span class="error-message" *ngIf="form.get('genres').invalid && form.get('genres').touched">Please, enter the correct amount of books</span>
+    <span class="error-message" *ngIf="form.get('genres').invalid && form.get('genres').touched">Please, enter the book genres</span>
   </label>
 
   <div class="buttons-container">
