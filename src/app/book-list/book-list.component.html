@@ -24,7 +24,7 @@
   <tbody>
   <tr *ngFor="let book of books | booksFilterByTitle:searchString ">
     <td>{{ book.id }}</td>
-    <td>{{ book.authorName }}</td>
+    <td>{{ book.authorFirstName }}+{{book.authorLastName}}</td>
     <td>{{ book.title }}</td>
     <td>{{ book.isbn }}</td>
     <td> <span class="badge" [ngClass]="quantityBagde(book.bookCount)"> {{ book.bookCount }} </span>  </td>

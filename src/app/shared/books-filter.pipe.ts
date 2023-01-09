@@ -10,7 +10,8 @@ export class BooksFilterPipe implements PipeTransform{
       return books;
     }
     return books.filter(book=>{
-      return book.authorName.toLocaleLowerCase().indexOf(search.toLocaleLowerCase()) !== -1 || book.title.toLocaleLowerCase().indexOf(search.toLocaleLowerCase()) !== -1;
+      let authorName = book.authorFirstName + book.authorLastName;
+      return authorName.toLocaleLowerCase().indexOf(search.toLocaleLowerCase()) !== -1 || book.title.toLocaleLowerCase().indexOf(search.toLocaleLowerCase()) !== -1;
     })
   }
 }
